@@ -1,0 +1,833 @@
+@charset "UTF-8";
+/*ここでは各パーショルファイルを＠useしてください。*/
+/*クラス定義 (これより下を消す)*/
+/*ここでは各ファイルで使用する変数を定義してください。*/
+/*クラス定義 (これより下を消す)*/
+/*ここでは各パーショルファイルを＠useしてください。*/
+/*クラス定義 (これより下を消す)*/
+/*クラス定義 (これより下を消す)*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  font-family: "Noto Sans JP", "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+  color: #111418;
+  scroll-behavior: smooth; 
+}
+
+/* ------------------------------------ */
+/* 基本設定とヘッダーコンテナ */
+/* ------------------------------------ */
+.header {
+  width: 100%;
+  /* メインビジュアルの上に重ねるためのにabsoluteを使用 */
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 10; /* 他の要素より手前に表示 */
+}
+
+.header__inner {
+  background-color: #fff; /* 背景を白に */
+  color: #111418;            /* 文字色を黒に */
+  padding: 20px 50px;
+  display: flex;
+  justify-content: flex-end; /* 中身を右端に寄せる */
+  align-items: center;
+  margin-top: 30px;
+}
+
+/* リストの「点」を消し、横並びにする設定 */
+.header__inner ul {
+  list-style: none;       /* 点（ドット）を消す */
+  margin: 0;
+  padding: 0;
+  display: flex;          /* メニューを横並びにする */
+}
+
+.header__inner li {
+  margin-left: 20px;      /* メニュー間の余白 */
+}
+
+/* リンクがある場合はリンクの色も黒にする */
+.header__inner a {
+  text-decoration: none;  /* 下線を消す */
+  color: #111418;            /* リンクの色を黒に */
+}
+
+
+/* ------------------------------------ */
+/* Pc用ナビ */
+/* ------------------------------------ */
+.g-nav {
+  /* PCでは常に表示 */
+  display: block;
+  width: 100%;
+}
+
+/* ナビゲーション全体を画面の右上に固定・配置する */
+.g-nav__list {
+  display: flex;           /* 横並びにする */
+  justify-content: flex-end; /* 右端に寄せる */
+  gap: 20px;               /* 項目間の余白 */
+  list-style: none;        /* デフォルトの点を消す */
+  margin: 0;
+  
+  /* 画面の最上部・右端に固定したい場合に追加 */
+  position: absolute; 
+  top: 0;
+  right: 30px;
+}
+
+.g-nav__txt {
+  cursor: pointer;
+  font-weight: bold;
+  /* 必要に応じて文字サイズなどを調整 */
+  font-size: 16px;
+  padding: 10px 15px;
+  margin-top: 10px;
+}
+
+.g-nav-item:last-child {
+  margin-right: 0;
+}
+
+.g-nav-item a {
+  text-decoration: none;
+  /* 画像の背景色（オレンジ）の上に表示されているため、文字色は
+白に設定 */
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: opacity 0.3s;
+}
+
+.g-nav-item a:hover {
+  opacity: 0.7;
+}
+
+@media screen and (min-width: 768px) {
+  /* メニューを浮かせて、高さを固定して配置 */
+  #g-nav {
+    display: flex !important;      /* 中身を横並びにする */
+    align-items: center;           /* 上下中央 */
+    position: absolute !important; /* 浮かせる */
+    top: 0;                        /* ヘッダーの高さに合わせる */
+    right: 50px;                   /* 右端からの距離 */
+    height: 80px;                  /* ヘッダーの高さと同じにする（※重要） */
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: none !important;
+    z-index: 100;
+  }
+
+  /* リスト自体も横に並べる */
+  .g-nav__list {
+    display: flex !important;      /* 項目を横に並べる */
+    flex-direction: row !important;
+    gap: 30px !important;          /* 項目ごとの間隔 */
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* リンク文字の設定 */
+  .g-nav__txt {
+    color: #111418 !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    font-size: 16px;
+    white-space: nowrap;           
+  }
+}
+
+/* -------------------------------------- */
+/* レスポンシブ対応（モバイル用）*/
+/* -------------------------------------- */
+@media screen and (max-width: 767px) { 
+  .header__inner {
+    padding: 15px 20px;
+    /* モバイルでは右端にボタン、ナビゲーションは隠すために
+    両端ぞろえにするなど調整が必要な場合あり */
+    justify-content: space-between;
+    position: relative; /* ナビゲーションの基準点 */
+  }
+}
+  .g-nav {
+    display: none; /* SPではナビゲーションを非表示（JSで制御する前提） */
+  }
+
+  /* 通常時（スマホ版）：メニューを画面外か透明にする */
+ .g-nav {
+    position: fixed;
+    right: -100%; /* 画面の右側に隠す */
+    top: 0;
+    width: 50%;
+    height: 400px;
+    background: #fff;
+    transition: all 0.3s ease; /* 動くスピード */
+    z-index: 999;
+    display: block !important;
+  }
+
+  /* JSで .is-active がついた時：画面内に戻す */
+  .g-nav.is-active {
+    right: 0; /* 画面内に表示 */
+    display: block;
+  }
+
+  @media screen and (max-width: 767px) {
+  /* リスト全体の調整 */
+  .g-nav__list {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: center;
+  height: 100%;
+  padding-top: 100px;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  gap: 20px;
+}
+
+  /* 各メニュー項目の調整 */
+  .g-nav__txt {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem; /* 1.2remから少し小さく */
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    margin: 0 !important; /* 余計なマージンを完全に消す */
+    line-height: 1.2;     /* 行間を狭くして、gapの制御をしやすくする */
+    white-space: nowrap;
+  }
+
+  /* 最後の項目の余白を消す */
+  .g-nav__txt:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ハンバーガーボタン：メニューより上に表示 */
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+}
+
+/* --- 強制的に×印にする設定 --- */
+@media screen and (max-width: 768px) {
+  /* メニューが開いた時(is-active時)の動き */
+  .header__hamburger.is-active span:nth-child(1) {
+    top: 10px;
+    transform: rotate(45deg);
+    background-color: #111418;
+  }
+
+  .header__hamburger.is-active span:nth-child(2) {
+    opacity: 0; /* 真ん中の線を消す */
+  }
+
+  .header__hamburger.is-active span:nth-child(3) {
+    top: 10px; /* 既存の top: 20px を打ち消す */
+    transform: rotate(-45deg);
+    background-color: #111418;
+  }
+
+  /* ボタンをメニューの一番手前に持ってくる */
+  .header__hamburger {
+    z-index: 1001 !important;
+    position: fixed !important; /* メニューが開いても右上に固定 */
+  }
+}
+
+/* --- ナビゲーションメニューの制御 --- */
+@media screen and (max-width: 768px) {
+  #g-nav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* 最初は画面外 */
+    width: 60%;   
+    height: 40vh;
+    background: #fff;
+    transition: all 0.3s;
+    z-index: 1000;
+    display: block; /* 常にブロック要素として扱う（位置で制御） */
+  }
+}
+
+  /* 開いた時 */
+  #g-nav.is-active {
+    right: 0;
+  }
+
+/* --- PC（768px超）の設定 --- */
+@media screen and (min-width: 769px) {
+  .header__hamburger {
+    display: none; /* PCではボタンを隠す */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header__hamburger {
+    display: block;
+    z-index: 1001;
+    cursor: pointer;
+    background: none;
+    border: none;
+    width: 30px;
+    height: 24px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
+
+  /* 三本線の描画例 */
+  .header__hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #111418; /* 線の色 */
+    position: absolute;
+    left: 0;
+    transition: 0.3s;
+  }
+  .header__hamburger span:nth-child(1) { top: 0; }
+  .header__hamburger span:nth-child(2) { top: 10px; }
+  .header__hamburger span:nth-child(3) { top: 20px; }
+}
+
+  .g-nav.is-active {
+    display: block;
+  }
+
+.hero-section {
+  width: 100%; /* 横幅を親要素いっぱいに広げる */
+  margin: 0;   /* 余計な外側の余白を消す */
+  background: linear-gradient(to bottom, #f07e46,#f5c36c);
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  transform: translateY(30px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+/* 文字に影をつけるための設定 */
+.hero-section h1 {
+  text-shadow: 8px 5px 1px rgba(0, 0, 0, 0.3); /* 横方向 縦方向 ぼかし 半透明の黒 */
+  font-size: 3rem; /* 必要に応じてサイズ調整 */
+}
+
+/* WEBデザイナー（pタグ）のスタイル */
+.hero-content p {
+  font-weight: bold;      /* 文字を太くする */
+  text-align: center;     /* テキストを中央に寄せる */
+  margin: 10px 0 0;       /* 上に少し余白を作り、名前との間隔を調整 */
+  font-size: 1.2rem;      /* 必要に応じて文字サイズを調整 */
+}
+
+/* 名前（h1タグ）も中央に揃える */
+.hero-content h1 {
+  text-align: center;
+  margin: 0;
+}
+
+/* 画面全体の隙間をなくすために追加 */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: visible; /* 横スクロールの発生を防ぐ */
+}
+
+.hero-section.is-visible {
+  opacity: 1;
+}
+
+/* ---------------------------------------- */
+/* 制作実績セクション全体 */
+/* ---------------------------------------- */
+.work-section {
+  background-color: rgba(245, 195, 108, 0.5); /* 50%の透明度 */
+  padding: 30px 5% 30px;
+  text-align: center; /* 子要素を中央に寄せる */
+}
+
+.section-title-wrapper {
+  display: inline-block;
+  margin: 0 auto 40px; /* 左右autoで中央配置を確実に */
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 0; 
+  background: linear-gradient(90deg, #f07e46, #f5c36c);
+  -webkit-background-clip: text; /* Chrome, Safari用 */
+  background-clip: text;         /* 標準の書き方（一応書いておく） */
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------------------------------------- */
+/* 作品リストを2列にする設定（追加） */
+/* ---------------------------------------- */
+.work-list {
+  display: flex;           /* 横並びにする */
+  flex-wrap: wrap;         /* 折り返しを許可 */
+  justify-content: center; /* 中央寄せ */
+  gap: 20px;               /* 画像と画像の間隔（2026年現在の推奨） */
+  list-style: none;
+  padding: 0;
+  max-width: 1000px;       /* 広がりすぎないよう制限 */
+  margin: 0 auto;
+}
+
+.work-item {
+  /* 【重要】2列にするため、隙間を考慮して45%〜48%程度に設定 */
+  width: calc(50% - 10px); 
+  text-align: left;        /* 中身のテキストは左寄せ */
+}
+
+.work-item img {
+  width: 100%;             /* 親要素の幅いっぱいに画像を表示 */
+  height: auto;
+  border-radius: 8px;      /* 角を少し丸くすると今風です */
+}
+
+/* スマホでは1列にする */
+@media screen and (max-width: 768px) {
+  .work-item {
+    width: 100%;
+  }
+}
+
+/* -------------------------------------- */
+/*作品カード（グリッド）*/
+/* -------------------------------------- */
+.work-gallery {
+  /* CSS Gridを使用してレスポンシブな配置を表現 */
+  display: grid;
+  grid-template-columns: repeat(auto-fit,
+  mimax(250px,1fr)); /* 幅に応じて250pxを最小に自動配置 */
+  gap: 30px;
+  max-width: 1000px; /*最大幅を設定し、全体を中央に寄せる */
+  margin: 0 auto;
+}
+
+.work-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+  text-align: center;
+}
+
+.work-card:hover {
+  transform: translateY(-5px); /* ホバーで少し浮き上がるエフェクト */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.work-thumbnail {
+  width: 100%;
+  height: auto;
+  max-height: 150px; /* サムネイルの高さに制限をかける */
+  object-fit: contain; /* 画像全体が見えるように調整 */
+  margin-bottom: 10px;
+}
+
+.work-title {
+  font-size: 0.95rem;
+  color: #111418;
+  margin: 5px 0 10px;
+  line-height: 1.4;
+}
+
+.detail-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #f07e46;
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 5px 0;
+}
+
+/* クラスを組み合わせて詳細度を高め、既存のスタイルを上書きします */
+.work-tags .tag.gradient-tag {
+    display: inline-block;
+    padding: 4px 12px;        /* 余白の調整 */
+    margin: 4px;              /* タグ同士の間隔 */
+    border: 1px solid #f07e46; /* #f07e46の四角で囲む */
+    background-color: #ffffff; /* 背景白 */
+    color: #f07e46;            /* 文字色 #f07e46 */
+    border-radius: 4px;       /* 角を少し丸くする場合（不要なら削除） */
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* もしグラデーションの背景などが残ってしまう場合は、backgroundをリセットします */
+.work-tags .tag.gradient-tag {
+    background-image: none !important; 
+}
+
+.work-link-inline {
+  /* 上に 10px の余白を追加 */
+  margin-top: 10px; 
+
+}
+
+/* 詳細度の高いセレクタで指定します */
+a.detail-button {
+    display: inline-flex;    /* 中身を中央に配置しやすくし、サイズ指定を有効化 */
+    align-items: center;     /* 矢印と文字の上下中央揃え */
+    justify-content: center; /* 左右の中央揃え */
+    
+    padding: 10px 24px;      /* ボタン内の余白 */
+    border: 1px solid #ccc;  /* #cccの枠線 */
+    border-radius: 50px;     /* 丸く囲む（高さ以上の数値を指定） */
+    background-color: #fff;  /* 背景白 */
+    color: #111418;          /* 文字色 */
+    font-weight: bold;
+    text-decoration: none;   /* 下線を消す */
+    font-size: 14px;
+    transition: 0.3s;        /* ホバー時の動きを滑らかにする（任意） */
+}
+
+/* 矢印アイコンの間隔調整 */
+.detail-button .arrow-icon {
+    margin-left: 8px;
+}
+
+/* ホバー時に色を変える設定（必要に応じて） */
+.detail-button:hover {
+    background-color: #f5f5f5;
+    border-color: #bbb;
+}
+
+/* -------------------------------------- */
+/* モバイル対応(768px以下）*/
+/* -------------------------------------- */
+@media screen and (max-width: 768px) {
+  .work-section {
+    padding: 40px 5% 30px;
+  }
+
+  .work-gallery {
+    grid-template-columns: 1fr; /* モバイルでは1列にする */
+    gap: 20px;
+  }
+}
+
+/* 全体の設定 */
+body {
+  background-color: #fff;
+  font-family: "Noto Sans JP", "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", sans-serif;
+  color: #111418;
+  line-height: 1.8;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* セクションタイトル */
+.section-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 30px auto 10px auto;
+  position: relative;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(90deg, #f07e46, #f5c36c); /* 背景にグラデーションを引く */
+  -webkit-background-clip: text; /* Chrome, Safari用 */
+  background-clip: text;         /* 標準の書き方（一応書いておく） */
+  -webkit-text-fill-color: transparent; /* 文字本来の色を透明にする */
+}
+
+/* タイトルの下線 */
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background: #f07e46;
+  -webkit-text-fill-color: initial; 
+  background-clip: border-box;
+}
+
+.top-about__ttl.section-title {
+  color: #f07e46;
+  /* 上の余白を10px、左右をauto、下の余白を40pxに設定 */
+  margin: 10px auto 40px; 
+  font-size: 1.5rem;
+  border-bottom: 0px solid #f07e46;
+  display: table; 
+  text-align: center;
+  padding: 30px 10px 10px;
+}
+
+/* コンテンツのレイアウト（横並び）*/
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+
+  /* PC版（幅768px以上など）のときだけ上に上げる */
+  @media (min-width: 768px) {
+    margin-top: -60px;
+  }
+}
+
+/* 画像部分 */
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image-wrapper {
+  width: 250px;
+  height: 250px;
+  background-color: #f07e46 50%; /* 画像の後ろの背景色 */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* テキスト部分 */
+.about-text {
+  flex: 2;
+}
+
+.name-ja {
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+  letter-spacing: 0.1em;
+}
+
+.profile-info {
+  font-size: 0.9rem;
+  color: #111418;
+  margin-bottom: 20px;
+}
+
+.bio p {
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+/* スマホ対応（画面が狭い時は縦並びにする）*/
+@media screen and (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .image-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* セクション全体の背景 */
+.skills-section {
+  background-color: rgba(245, 195, 108, 0.5); /* 50%の透明度 */
+  padding: 30px 20px;
+  text-align: center;
+  font-family: "Zen Kaku Gothic New","Inter";
+}
+
+.top-skills__ttl.section-title {
+  color: #f07e46;
+  /* 上の余白を10px、左右をauto、下の余白を40pxに設定 */
+  margin: 10px auto 40px; 
+  font-size: 1.5rem;
+  border-bottom: 0px solid #f07e46;
+  display: table; 
+  text-align: center;
+}
+
+/* 親要素：カードを横並びにする */
+.skills-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: nowrap; /* PCでは折り返さないように強制 */
+  width: 100%;       /* 親の幅をいっぱいにする */
+}
+
+/* 子要素（カード）：幅を指定する */
+.skill-card { 
+  flex: 1;           /* カードの幅を均等にする */
+  max-width: 300px;  /* カードが広がりすぎないように制限（任意） */
+  min-width: 200px;  /* カードが小さくなりすぎないように制限（任意） */
+}
+
+/* スマホ版（画面幅が狭い時）は縦並びにする設定 */
+ @media (max-width: 768px) {
+  .skills-container {
+    /* FlexboxからGridに切り替えるのが、高さを揃える一番確実な方法 */
+    display: grid;
+    grid-template-columns: 1fr; /* 1列に並べる */
+    
+    /* これが重要：子要素の高さをすべて自動で揃える */
+    grid-auto-rows: 1fr; 
+    
+    gap: 20px;
+    max-width: 300px; /* カードの横幅を決めます */
+    margin: 0 auto;
+  }
+
+  .skill-card {
+    /* 固定幅をリセットしてGridの枠いっぱいに広げる */
+    width: 100% !important; 
+    margin: 0;
+    box-sizing: border-box;
+    
+    /* 中身の配置 */
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* カードのデザイン */
+.skill-card {
+  background: #fff;
+  padding: 30px;
+  width: 280px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.skill-card h3 {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #111418;
+}
+
+/* 各スキル項目のレイアウト */
+.skill-item {
+  margin-bottom: 15px;
+}
+
+.skill-item p {
+  margin: 0 0 5px 0;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #111418;
+}
+
+/* 共通設定 */
+.stars {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.stars.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 指定されたスコア分だけオレンジの星を表示 */
+.stars::before {
+  color: #f07e46;
+  position: relative;
+  z-index: 2;
+}
+
+/* data-scoreの値に応じて表示内容を切り替える */
+.stars[data-score="1"]::before { content: "★"; }
+.stars[data-score="2"]::before { content: "★★"; }
+.stars[data-score="3"]::before { content: "★★★"; }
+.stars[data-score="4"]::before { content: "★★★★"; }
+.stars[data-score="5"]::before { content: "★★★★★"; }
+
+
+/* フッター全体：背景を透明または白にする（下の各パーツで色を塗るため） */
+.footer {
+  color: #333;                  /* 全体の基本文字色を暗くしておく（必要に応じて） */
+  width: 100%;
+  font-family: "Zen Kaku Gothic New";
+}
+
+/* 中央寄せのコンテナ */
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 20px; は背景を分けるため、各要素のpadding/marginで調整するのが綺麗です */
+}
+
+/* ナビゲーションエリア：背景を白に */
+.footer-nav {
+  background-color: #fff;       /* 背景色：白 */
+  width: 100%;                  /* 横いっぱいに広げる */
+  display: flex;
+  justify-content: center;      /* 中身を中央寄せ */
+  padding: 20px 0;              /* 上下の余白 */
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 30px;
+}
+
+.footer-nav a {
+  color: #111418;               /* 文字色：背景が白なのでオレンジに変更 */
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.footer-nav a:hover {
+  opacity: 0.7;
+}
+
+/* コピーライトエリア：背景をオレンジに */
+.copyright-wrapper {
+  background-color: #f07e46;    /* 背景色：オレンジ */
+  width: 100%;                  /* 横いっぱいに広げる */
+  text-align: center;           /* 文字を中央寄せ */
+  padding: 20px 0;              /* 上下の余白 */
+}
+
+.copyright {
+  color: #fff;                  /* 文字色：白 */
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
