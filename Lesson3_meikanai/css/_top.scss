@@ -1,0 +1,2201 @@
+@charset "UTF-8";
+
+/*クラス定義 (これより下を消す)*/
+
+@use "variable" as vr;
+
+.modal {
+  display: none;
+
+  &.show {
+    display: block;
+  }
+
+  &-toggle {
+    cursor: pointer;
+  }
+
+  &-bg {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1042;
+    overflow: hidden;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  &-inner {
+    position: absolute;
+    margin: 0 auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1045;
+  }
+
+  &-content {
+    padding-top: 48px;
+
+    & img {
+      margin: 0 auto;
+      max-width: 90vw;
+      max-height: 80vh;
+    }
+  }
+  &-close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    font-size: 24px;
+    opacity: 0.65;
+    cursor: pointer;
+  }
+}
+
+.top-wrap {
+  background: vr.$c-sub;
+}
+
+.top-mv {
+  &__inner {
+    background-image: url(../img/top-mv-sp.png);
+    background-image: image-set(
+      url(../img/top-mv-sp.png) 1x,
+      url(../img/top-mv-sp@2x.png) 2x
+    ); 
+    background-image: -webkit-image-set(
+      url(../img/top-mv-sp.png) 1x,
+      url(../img/top-mv-sp@2x.png) 2x
+    );
+    background-repeat: no-repeat;
+    background-position-y: 100%;
+    background-size: cover;
+    padding: 13vw 4vw 31vw;
+    @include vr.min(sm) {
+      padding: 78px 24px 178px;
+    }
+    @include vr.min(md) {
+      background-image: url(../img/top-mv-pc.png);
+      background-image: image-set(
+        url(../img/top-mv-pc.png) 1x,
+        url(../img/top-mv-pc@2x.png) 2x
+      );
+      background-image: -webkit-image-set(
+        url(../img/top-mv-pc.png) 1x,
+        url(../img/top-mv-pc@2x.png) 2x
+      );
+      padding: 6vw 3vw 18vw;
+    }
+    @include vr.min(lg) {
+      padding: 88px 24px 13vw;
+    }
+  }
+  &__wrap {
+    @include vr.min(sm) {
+      max-width: 530px;
+      margin: 0 auto;                                
+    }
+    @include vr.min(md) {
+      max-width: inherit;
+    }
+    @include vr.min(lg) {
+      max-width: 1020px;
+    }
+  }
+  &__box {
+    text-align: center;
+    @include vr.min(md) {
+      text-align: left;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+      &--l {
+        width: 50%;
+        @include vr.min(lg) {
+          width: 55%;
+          max-width: 510px;
+        }
+      }
+      &--r {
+        width: 40%;
+      }
+    }
+  }
+  &__copy-wrap {
+    text-align: left;
+    display: inline-block;
+  }
+  &__copy {
+    color: vr.$c-white;
+    font-size: vr.vw(25);
+    font-weight: bold; 
+    text-align: left;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    margin-bottom: 8vw;
+    @include vr.min(sm) {
+      font-size: vr.rem(38);
+      margin-bottom: 40px;
+    }
+    @include vr.min(md) {
+      font-size: 3.61vw;
+    }
+    @include vr.min(lg) {
+      font-size: vr.rem(40);
+      margin-bottom: 48px;
+    }
+    &--sm {
+      font-size: vr.vw(13);
+      margin-bottom: 5px;
+      @include vr.min(sm) {
+        font-size: vr.rem(20);
+      }
+      @include vr.min(md) {
+        font-size: 2.4vw;
+        margin-bottom: 8px;
+      }
+      @include vr.min(lg) {
+        font-size: vr.rem(30);
+      }
+    }
+  } 
+  &__img {
+    width: 64%;
+    max-width: 340px;
+    margin: 0 auto;
+    &--sp {
+      @include vr.min(md) {
+        display: none;
+      }
+    }
+    &--pc {
+      display: none;
+      @include vr.min(md) {
+        display: block;
+        width: 100%;
+        max-width: 514px;
+      }
+    }
+  }
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 424px;
+    margin: 0 auto 4vw;
+    @include vr.min(sm) {
+      margin: 0 auto 24px;
+    }
+    @include vr.min(md) {
+      max-width: inherit;
+      margin: 0 auto 24px;
+    }
+    @include vr.min(lg) {
+      max-width: 405px;
+    }
+  }
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 21vw;
+    height: 21vw;
+    background: vr.$c-white;
+    border-radius: 50%;
+    @include vr.min(sm) {
+      width: 120px;
+      height: 120px;
+    }
+    @include vr.min(md) {
+      width: 12vw;
+      max-width: inherit;
+      height: 12vw;
+    }
+    @include vr.min(lg) {
+      width: 125px;
+      height: 125px;
+    }
+  }
+  &__item-txt {
+    display: block;
+    text-align: center;
+    color: vr.$c-main;
+    font-size: vr.vw(13);
+    font-weight: bold;
+    line-height: 1.5;
+    font-feature-settings: "palt";
+    @include vr.min(sm) {
+      font-size: vr.rem(20);
+    }
+    @include vr.min(md) {
+      font-size: 2vw;
+    }
+    @include vr.min(lg) {
+      font-size: vr.rem(20);
+    }
+  }
+  &__btn-wrap {
+    display: flex;
+    justify-content: space-between;
+    max-width: 530px;
+    margin: 0 auto;
+    @include vr.min(lg) {
+      max-width: 840px;
+    }
+  }
+  &__dot span {
+    position: relative;
+    padding-bottom: 3vw;
+    @include vr.min(sm) {
+      padding-bottom: 18px;
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      background-color: vr.$c-main;
+      width: 2vw;
+      height: 2vw;
+      border-radius: 50%;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      @include vr.min(sm) {
+        width: 11px;
+        height: 11px;
+      }
+      @include vr.min(md) {
+        width: 1.2vw;
+        height: 1.2vw;
+      }
+      @include vr.min(lg) {
+        width: 11px;
+        height: 11px;
+      }
+    }
+  }
+  .ct-btn {
+    width: 49%;
+  }
+}
+
+// ----------------------
+// IT点呼キーパーとは？
+// ----------------------
+.top-about {
+  &__inner {
+    padding: 0 8vw 18vw;
+    @include vr.min(sm) {
+      padding: 0 48px 102px;
+    }
+    @include vr.min(md) {
+      padding: 24px 48px 102px;
+    }
+  }
+  &__ttl {
+    text-align: center;
+    color: vr.$c-main;
+    font-size: vr.vw(26);
+    font-weight: bold;
+    margin-bottom: 6.5vw;
+    @include vr.min(sm) {
+      font-size: vr.rem(40);
+      margin-bottom: 36px;
+    }
+    @include vr.min(md) {
+      font-size: vr.rem(32);
+    }
+  }
+  &__img {
+    width: 80%;
+    max-width: 300px;
+    margin: 0 auto 8px;
+    @include vr.min(md) {
+      max-width: 360px;
+      margin: 0 auto 24px;
+    }
+  }
+  &__txt {
+    @include vr.min(sm) {
+      text-align: center;
+    }
+    @include vr.min(md) {
+      font-size: vr.rem(24);
+    }
+    &--big {
+      text-align: center;
+      font-size: vr.vw(20);
+      font-weight: bold;
+      margin-bottom: 16px;
+      @include vr.min(sm) {
+        font-size: vr.rem(30);
+      }
+      @include vr.min(md) {
+        font-size: vr.rem(28);
+      }
+    }
+  }
+}
+
+// ----------------------
+// 選ばれる6つの理由
+// ----------------------
+.top-reason {
+  &__inner {
+    padding: 10.7vw 8vw 14vw;
+    @include vr.min(sm) {
+      padding: 64px 48px 80px;
+    }
+    @include vr.min(md) {
+      padding: 64px 0 80px;
+    }
+  }
+  &__ttl {
+    text-align: center;
+    font-size: vr.vw(18);
+    line-height: 1.2;
+    margin-bottom: 9vw;
+    @include vr.min(sm) {
+      font-size: vr.rem(28);
+      line-height: 1.1;
+      margin-bottom: 48px;
+    }
+    @include vr.min(md) {
+      margin-bottom: 72px;
+    }
+    &--l {
+      font-size: 1.5em;
+    }
+    &--xl {
+      display: inline-block;
+      font-size: 2.7em;
+      margin: 4px -4px 0;
+    }
+  }
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 480px;
+    margin: 0 auto;
+    @include vr.min(md) {
+      max-width: 740px;
+      padding: 0 16px;
+    }
+    @include vr.min(lg) {
+      @include vr.ct-width();
+    }
+  }
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 48%;
+    height: 40vw;
+    background: #75dce6;
+    border-radius: 50%;
+    margin-bottom: 6vw;
+    @include vr.min(sm) {
+      width: 224px;
+      height: 224px;
+      margin-bottom: 32px;
+    }
+    @include vr.min(md) {
+      margin-bottom: 48px;
+    }
+    @include vr.min(lg) {
+      justify-content: space-around;
+      width: 32%;
+      height: 28.5vw;
+      max-width: 280px;
+      max-height: 280px;
+      padding: 37px 0 45px;
+      margin-bottom: 60px;
+    }
+  }
+  &__number {
+    display: block;
+    width: 19%;
+    max-width: 44px;
+    margin: 0 auto 2px;
+    @include vr.min(lg) {
+      max-width: 49px;
+      margin: 0 auto 8px;
+    }
+  }
+  &__img {
+    margin: 0 auto;
+    &--01 {
+      width: 20%;
+      max-width: 46px;
+      @include vr.min(lg) {
+        width: 100%;
+        max-width: 66px;
+      }
+    }
+    &--02 {
+      width: 24%;
+      max-width: 56px;
+      @include vr.min(lg) {
+        width: 100%;
+        max-width: 82px;
+      }
+    }
+    &--03 {
+      width: 27%;
+      max-width: 62px;
+      @include vr.min(lg) {
+        width: 100%;
+        max-width: 96px;
+      }
+    }
+    &--04 {
+      width: 26%;
+      max-width: 60px;
+      @include vr.min(lg) {
+        width: 100%;
+        max-width: 83px;
+      }
+    }
+    &--05 {
+      width: 21%;
+      max-width: 48px;
+      @include vr.min(lg) {
+        width: 100%;
+        max-width: 66px;
+      }
+    }
+    &--06 {
+      width: 18%;
+      max-width: 41px;
+      @include vr.min(lg) {
+        width: 100%;
+        max-width: 53px;
+      }
+    }
+  }
+  &__txt {
+    text-align: center;
+    color: vr.$c-white;
+    font-size: vr.vw(14);
+    font-weight: bold;
+    line-height: 1.5;
+    margin-bottom: 5px;
+    @include vr.min(sm) {
+      font-size: vr.rem(21);
+    }  
+  }
+}
+
+// ----------------------
+// お悩み解決
+// ----------------------
+
+.swiper-container {
+  position: relative;
+  padding: 0 5.5vw 56px 0;
+  overflow: hidden;
+  @include vr.min(md) {
+    padding: 0;
+  }
+}
+
+.swiper-wrapper {
+  padding: 0 10px 0 15px;
+  @include vr.min(md) {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+  }
+}
+
+.swiper-slide {
+  width: 80%;
+  max-width: 360px;
+  @include vr.min(md) {
+    width: 48%;
+    max-width: 480px;
+  }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(vr.$c-black, 0.4);
+  @include vr.min(md) {
+    display: none;
+  }
+}
+.swiper-button-next {
+  &::after {
+    position: relative;
+    content: "";
+    border-left: 13px solid vr.$c-white;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    left: 1px;
+  }
+}
+.swiper-button-prev {
+  &::after {
+    position: relative;
+    content: "";
+    border-right: 13px solid vr.$c-white;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    left: -3px;
+  }
+}
+
+.swiper-pagination {
+  bottom: 0;
+  opacity: 1;
+  @include vr.min(md) {
+    display: none;
+  }
+  .swiper-pagination-bullet {
+    width: 16px;
+    height: 16px;
+    background: vr.$c-white;
+    border: 1px solid #bcbcbc;
+    opacity: 1;
+    margin: 0 10px;
+  }
+  .swiper-pagination-bullet-active {
+    background: vr.$c-main;
+    box-shadow: 0 3px 10px rgba(#55c5da, 0.3);
+    border: none;
+  }
+}
+
+.top-solution {
+  &__inner {
+    padding: 8vw 0 10vw;
+    @include vr.min(md) {
+      padding: 77px 0 130px;
+      @include vr.ct-width;
+    }
+  }
+  &__ttl {
+    text-align: center;
+    font-size: vr.vw(18);
+    line-height: 1.5;
+    margin-bottom: 8vw;
+    @include vr.min(sm) {
+      font-size: vr.rem(28);
+      margin-bottom: 48px;
+    }
+    &--l {
+      font-size: 1.56em;
+    }
+    &--xl {
+      font-size: 1.67em;
+      margin-left: -5px;
+    }
+  }
+  &__item {
+    height: auto;
+    @include vr.min(sm) {
+      margin-bottom: 40px;
+    }
+  }
+  &__item-img {
+    height: 100%;
+    background: linear-gradient(40deg, #92f5ee 0%, #54cadc 50%);
+    box-shadow: 0 0 20px rgba(#55c5da, 0.15);
+    padding-bottom: 48px;
+    img {
+      display: block;
+    }
+  }
+}
+
+// ----------------------
+// 業務の流れ
+// ----------------------
+.top-flow {
+  &__inner {
+    padding: 8vw 4vw 6vw;
+    position: relative;
+    @include vr.min(md) {
+      padding: 80px 24px 120px;
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      background-image: url(../img/dec-cloud01.png);
+      background-image: image-set(
+        url(../img/dec-cloud01.png) 1x,
+        url(../img/dec-cloud01@2x.png) 2x
+      );
+      background-image: -webkit-image-set(
+        url(../img/dec-cloud01.png) 1x,
+        url(../img/dec-cloud01.png@2x.png) 2x
+      );
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 76%;
+      height: 37vw;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      @include vr.min(md) {
+        width: 560px;
+        height: 260px;
+      }
+      @include vr.min(xl) {
+        width: 724px;
+        height: 400px;
+      }
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      background-image: url(../img/dec-cloud02.png);
+      background-image: image-set(
+        url(../img/dec-cloud02.png) 1x,
+        url(../img/dec-cloud02.png@2x.png) 2px
+      );
+      background-image: -webkit-image-set(
+        url(../img/dec-cloud02.png) 1x,
+        url(../img/dec-cloud02.png@2x.png) 2x
+      );
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 47%;
+      height: 19vw;
+      bottom: 0;
+      right: 0;
+      z-index: -1;
+      @include vr.min(md) {
+        width: 360px;
+        height: 145px;
+      }
+      @include vr.min (xl) {
+        width: 550px;
+        height: 215px;
+      }
+    }
+  }
+  &__ttl {
+    text-align: center;
+    font-size: vr.vw(18);
+    line-height: 1.5;
+    margin-bottom: 8vw;
+    @include vr.min(sm) {
+      font-size: vr.rem(28);
+      margin-bottom: 48px;
+    }
+    &--l {
+      font-size: 1.6em;
+    }
+  }
+  &__img {
+    max-width: 500px;
+    margin: 0 auto;
+    @include vr.min(lg) {
+      position: relative;
+      max-width: 654px;
+      left: 56px;
+    }
+  }
+}
+
+// ----------------------
+// 導入メリット
+// ----------------------
+.top-merit {
+  &__inner {
+    padding: 13vw 0 0;
+    @include vr.min(sm) {
+      padding: 74px 0 0;
+    }
+    @include vr.min(lg) {
+      @include vr.ct-width();
+      padding-bottom: 120px;
+    }
+  }
+  &__ttl {
+    text-align: center;
+    font-size: vr.vw(18);
+    line-height: 1.5;
+    margin-bottom: 8vw;
+    @include vr.min(sm) {
+      font-size: vr.rem(28);
+      margin-bottom: 48px;
+    }
+    &--l {
+      font-size: 1.6em;
+    }
+  }
+
+  .sp-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    // margin:20px 0 0;
+  }
+  .sp-label {
+    flex: 1;
+    position: relative;
+    text-align: center;
+    font-size: vr.vw(14);
+    font-weight: bold;
+    background: #efefef;
+    white-space: nowrap;
+    padding: 4vw 10vw;
+    border-radius: 10px 10px 0 0;
+    order: -1;
+    z-index: 1;
+    cursor: pointer;
+    transition: all 0.3s;
+    @include vr.min(md) {
+      font-size: vr.rem(21);
+      padding: 22px 15px;
+    }
+    @include vr.min(lg) {
+      font-size: vr.rem(28);
+      padding: 29px 15px 32px;
+    }
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+  .sp-label:not(:last-of-type) {
+    margin-right: 15px;
+  }
+  .sp-content {
+    display: none;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    // opacity: 0;
+  }
+  .sp-switch:checked + .sp-label {
+    color: vr.$c-white;
+    background: #5ed1df;
+  }
+  .sp-switch:checked + .sp-label + .sp-content {
+    display: block;
+    height: auto;
+    overflow: auto;
+    // opacity: 1;
+    transition: 0.5s all;
+  }
+  .sp-switch {
+    display: none;
+  }
+}
+
+.sp-content {
+  background: linear-gradient(40deg, #92f5ee 0% #54cadc 50%);
+  padding: 0 6vw;
+  @include vr.min(sm) {
+    padding: 0 34px;
+  }
+  @include vr.min(lg) {
+    padding: 0 56px;
+  }
+  &__ttl {
+    text-align: center;
+    color: vr.$c-white;
+    font-size: vr.vw(22);
+    font-weight: bold;
+    margin-bottom: 4vw;
+    @include vr.min(sm) {
+      font-size: vr.rem(32);
+      margin-bottom: 23px;
+    }
+    @include vr.min(md) {
+      margin-bottom: 36px;
+    }
+  }
+  &__img {
+    width: 35%;
+    max-width: 187px;
+    margin: 10vw auto 0;
+    @include vr.min(sm) {
+      margin: 56px auto 0;
+    }
+    @include vr.min(md) {
+      margin: 56px auto 22px;
+    }
+  }
+  &__list {
+    margin-bottom: 16vw;
+    @include vr.min(sm) {
+      margin-bottom: 72px;
+    }
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4vw;
+    @include vr.min(sm) {
+      margin-bottom: 20px;
+    }
+  }
+  &__number {
+    display: block;
+    color: vr.$c-white;
+    font-size: vr.vw(42);
+    font-weight: bold;
+    line-height: 1;
+    opacity: 0.5;
+    padding-right: 16px;
+    @include vr.min(sm) {
+      font-size: vr.rem(60);
+    }
+  }
+  &__item-txt {
+    width: 100%;
+    font-size: vr.vw(14);
+    font-weight: bold;
+    line-height: 1.5;
+    background: vr.$c-white;
+    border-radius: 8px;
+    padding: 15px 20px;
+    @include vr.min(sm) {
+      font-size: vr.rem(20);
+      padding: 20px 28px;
+    }
+    &--sm {
+      display: block;
+      font-size: 0.8em;
+      font-weight: 400;
+    }
+    i {
+      color: vr.$c-black;
+      font-size: 0.8em;
+      font-style: inherit;
+    }
+  }
+}
+
+// ----------------------
+// 高性能なのに低価格
+// ----------------------
+.top-price {
+  background: #f4f4f4;
+  &__inner {
+    padding: 13.4vw 8vw 19vw;
+    @include vr.min(sm) {
+      padding: 77px 48px 110px;
+    } 
+    @include vr.min(md) {
+      @include vr.ct-width();
+      padding-top: 104px;
+      padding-bottom: 120px;
+    }
+  }
+  &__ttl {
+    text-align: center;
+    font-size: vr.vw(18);
+    line-height: 1.5;
+    margin-bottom: 12vw; 
+    @include vr.min(sm) {
+      font-size: vr.rem(22);
+      margin-bottom: 48px;
+    }
+    @include vr.min(lg) {
+      font-size: vr.rem(24);
+    }
+    &--l {
+      font-size: 1.56em;
+    }
+    &--xl {
+      font-size: 1.1em;
+    }
+    &--u {
+      position: relative;
+      padding-bottom: 12px;
+      &::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 4px;
+        bottom: 0;
+        background: vr.$c-main;
+        @include vr.min(md) {
+          height: 6px;
+        }
+      }
+    }
+  }
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6.7vw;
+    @include vr.min(sm) {
+      max-width: 480px;
+      margin: 0 auto 36px;
+    }
+    @include vr.min(md) {
+      max-width: 700px;
+    }
+    @include vr.min(lg) {
+      max-width: 900px;
+      margin: 0 auto 48px;
+    }
+  }
+  &__img-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 47.5%;
+    max-width: 228px;
+    height: 40vw;
+    max-height: 228px;
+    background: vr.$c-white;
+    border-radius: 50%;
+    border: 2px solid #f4f4f4;
+    box-shadow: 0 0 0  5px vr.$c-white;
+    @include vr.min(md) {
+      width: 332px;
+      max-width: inherit;
+      height: 326px;
+      max-height: inherit;
+      border: 12px solid #f4f4f4;
+    }
+    @include vr.min(lg) {
+      width: 432px;
+      height: 426px;
+      border: 20px solid #f4f4f4;
+    }
+  }
+  &__img {
+    width: 70%;
+    margin: 0 auto;
+    @include vr.min(md) {
+      width: 64%;
+    }
+    &--monthly-cost {
+      width: 63%;
+      position: relative;
+      left: 3px;
+      @include vr.min(md) {
+        width: 56%;
+      }
+    }
+  }
+  &__txt {
+    &--l {
+      font-size: vr.vw(14);
+      margin-bottom: 24px;
+      @include vr.min(sm) {
+        font-size: vr.rem(16);
+        margin-bottom: 14px;
+      }
+    }
+  }
+  &__att {
+    position: relative;
+    font-size: vr.vw(10);
+    padding-left: 1em;
+    padding-bottom: 5px;
+    @include vr.min(sm) {
+      font-size: vr.rem(14);
+      padding-bottom: 0;
+    }
+    &::before {
+      position: absolute;
+      content: "※";
+      left: 0;
+    }
+  }
+}
+
+.top-price-plan {
+  margin-top: vr.vw(20);
+  @include vr.min(sm) {
+    margin-top: 56px;
+  }
+  @include vr.min(lg) {
+    margin-top: 72px;
+  }
+  &__ttl {
+    position: relative;
+    text-align: center;
+    background: vr.$c-main;
+    color: vr.$c-white;
+    font-size: vr.vw(18);
+    padding: 17px 0 20px;
+    border-radius: 8px;
+    transition: all 0.3s;
+    cursor: pointer;
+    @include vr.min(sm) {
+      font-size: vr.rem(18);
+      padding: 8px 0 10px;
+    }
+    &:hover {
+      opacity: 0.5;
+    }
+    &::before {
+      position: absolute;
+      content: "\f055";
+      color: vr.$c-white;
+      font-family: "font Awesome 5 Free";
+      font-weight: bold;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all 0.3s;
+      @include vr.min(sm) {
+        right: 25px;
+      }
+    }
+    &--sm {
+      font-size: 0.8em;
+    }
+    &.active {
+      border-radius: 8px 8px 0 0;
+      &::before {
+        content: "\f056";
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+  &__wrap {
+    border: 1px solid vr.$c-main;
+    background: vr.$c-white;
+    padding: 6vw 4vw 10vw;
+    border-radius: 0 0 8px 8px;
+    @include vr.min(sm) {
+      padding: 24px 30px 48px;
+    }
+  }
+  &__plan {
+    // margin-bottom: vr.vw(24);
+    margin-bottom: 24px;
+    @include vr.min(md) {
+      display: flex;
+    }
+    dt {
+      color: vr.$c-main;
+      // font-size: vr.vw(14);
+      font-size: vr.rem(14);
+      font-weight: bold;
+      padding-bottom: 5px;
+      @include vr.min(sm) {
+        font-size: vr.rem(16);
+      }
+      @include vr.min(md) {
+        width: 32%;
+        max-width: 210px;
+      }
+    }
+    dd {
+      // font-size:vr.vw(14);
+      font-size: vr.rem(14);
+      @include vr.min(sm) {
+        font-size: vr.rem(16);
+      }
+      @include vr.min(md) {
+        width: 80%;
+      }
+      .dd--sm {
+        font-size: 0.9em;
+      }
+    }
+  }
+  &__plan-txt--sm {
+    display: block;
+    color: #656565;
+    font-size: 0.8em;
+    @include vr.min(md) {
+      font-size: vr.rem(12);
+    }
+  }
+  &__plan-label {
+    display: inline-block;
+    font-size: vr.rem(11);
+    border: 1px solid vr.$c-black;
+    padding: 0 10px;
+  }
+  &__table {
+    width: 100%;
+    margin-bottom: 40px;
+    @include vr.min(md) {
+      margin-bottom: 64px;
+    }
+    thead th {
+      text-align: center;
+      font-size: vr.rem(14);
+      font-weight: 400;
+      background: #e8e8e8;
+      padding: 11px 8px 15px;
+      &:nth-of-type(n + 2) {
+        border-left: 4px solid vr.$c-white;
+      }
+      @include vr.min(md) {
+        font-size: vr.rem(16);
+      }
+    }
+    tbody tr {
+      border-bottom: 1px solid #d6d6d6;
+      padding: 10px 0;
+    }
+    tbody th {
+      vertical-align: middle;
+      // font-size: vr.vw(14);
+      font-size: vr.rem(14);
+      padding: 8px 0 8px 10px;
+      @include vr.min(md) {
+        font-size: vr.rem(16);
+        padding: 16px 0;
+      }
+    }
+    tbody td {
+      text-align: center;
+      // font-size: vr.vw(14);
+      font-size: vr.rem(14);
+      padding-left: 10px;
+      padding: 8px 0 10px 10px;
+      @include vr.min(md) {
+        font-size: vr.rem(16);
+        padding: 16px 0;
+      }
+    }
+  }
+
+  &__accordion {
+    overflow: hidden;
+    height: 0;
+    transition: all 0.8s;
+  }
+}
+
+// ----------------------
+// お問い合わせ
+// ----------------------
+.contact-area {
+  position: relative;
+  background: linear-gradient(40deg, #92f5ee 0%, #54cadc 50%);
+  &::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(#9ce3ea 1px, transparent 1px);
+    background-size: 15px 15px;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    @include vr.min(lg) {
+      background-image: radial-gradient(#9ce3e8 1.5px, transparent 1.5px);
+      background-size: 23px 23px;
+    }
+  }
+  &__inner {
+    position: relative;
+    padding: 10vw 8vw 14vw;
+    z-index: 1;
+    @include vr.min(sm) {
+      padding: 56px 48px 80px;
+    }
+    @include vr.min(md) {
+      padding: 64px 48px 88px;
+    }
+  }
+  &__ttl {
+    text-align: center;
+    color: vr.$c-white;
+    font-size: vr.vw(32);
+    margin-bottom: vr.vw(25);
+    @include vr.min(sm) {
+      font-size: vr.rem(48);
+      margin-bottom: 44px;
+    }
+  }
+  &__ttl-dec {
+    display: block;
+    width: 65%;
+    max-width: 286px;
+    margin: 0 auto;
+    img {
+      display: block;
+    }
+  }
+  &__txt {
+    font-size: vr.vw(14);
+    margin-bottom: vr.vw(25);
+    @include vr.min(sm) {
+      font-size: vr.rem(16);
+      font-weight: bold;
+      margin-bottom: 48px;
+    }
+    @include vr.min(md) {
+      text-align: center;
+    }
+    &--sm {
+      max-width: 630px;
+      text-align: center;
+      font-size: vr.vw(10);
+      margin: 0 auto;
+      @include vr.min(sm) {
+        text-align: right;
+        font-size: vr.rem(14);
+        font-weight: bold;
+      }
+    }
+  }
+  .ct-btn {
+    max-width: 630px;
+    padding: 6vw 4vw 7vw;
+    margin: 0 auto 4vw;
+    @include vr.min(sm) {
+      padding: 32px 20px 40px;
+      margin-bottom: 20px;
+    }
+    &__txt {
+      font-size: vr.vw(16);
+      @include vr.min(sm) {
+        font-size: vr.rem(24);
+      }
+    }
+    .fa-envelope {
+      font-size: 1.3em;
+    }
+    .fa-phone-volume {
+      font-size: 1.7em;
+      left: 5.2vw;
+      @include vr.min(sm) {
+        left: 32px;
+      }
+    }
+  }
+}
+
+// ----------------------
+// 導入まで
+// ----------------------
+.top-step {
+  &__inner {
+    padding: 12vw 8vw 15vw;
+    @include vr.min(sm) {
+      padding: 72px 48px 88px;
+    }
+    @include vr.min(lg) {
+      @include vr.ct-width();
+      padding-top: 64px;
+      padding-bottom: 104px;
+    }
+  }
+  &__ttl {
+    text-align: center;
+    font-size: vr.vw(18);
+    letter-spacing: 0.07em;
+    line-height: 1.5;
+    margin-bottom: vr.vw(22);
+    @include vr.min(sm) {
+      font-size: vr.rem(24);
+      margin-bottom: 32px;
+    }
+    @include vr.min(md) {
+      font-size: vr.rem(40);
+      margin-bottom: 48px;
+    }
+    &--l {
+      display: inline-block;
+      color: vr.$c-main;
+      font-size: 1.72em;
+      letter-spacing: 0.08em;
+      padding: 0 10%;
+      position: relative;
+      @include vr.min(sm) {
+        padding: 0 48px;
+      }
+      @include vr.min(md) {
+        font-size: 1.05em;
+        padding: 0 48px 0 0;
+      }
+      &::before {
+        position: absolute;
+        content: "";
+        background-image: url(../img/dec-point.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 14.5%;
+        height: 5vw;
+        right: 12px;
+        top: -4px;
+        @include vr.min(sm) {
+          width: 40px;
+          height: 26px;
+          right: 24px;
+          top: -10px;
+        }
+        @include vr.min(md) {
+          width: 25px;
+          height: 16px;
+          right: 34px;
+          top: 0px;
+        }
+      }
+    }
+  }
+}
+
+.top-step-list {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 680px;
+  margin: 0 auto;
+  @include vr.min(md) {
+    max-width: inherit;
+  }
+  &::before {
+    @include vr.min(lg) {
+      position: absolute;
+      content: "";
+      width: 80%;
+      height: 2px;
+      background: vr.$c-main;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      z-index: -1;
+    }
+  }
+  &__item {
+    width: 47%;
+    margin-bottom: 5vw;
+    @include vr.min(sm) {
+      margin-bottom: 28px;
+    }
+    @include vr.min(lg) {
+      width: 23%;
+    }
+    // &:nth-of-type(odd){
+    //   .top-step-list__box{
+    //     position: relative;
+    //     &::before{
+    //       position : absolute;
+    //       content : '';
+    //       width: 50%;
+    //       height: 1px;
+    //       background: vr.$c-main;
+    //       top: 50%;
+    //       transform: translateY(-50%);
+    //       right: -15%;
+    //       z-index: -1;
+    //       @include vr.min(lg){
+    //         display: none;
+    //       }
+    //     }
+    //   }
+    // }
+  }
+  &__box {
+    background: vr.$c-white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(#55c5da, 0.25);
+    padding: 5vw 3vw 6vw;
+    @include vr.min(sm) {
+      padding: 28px 8% 32px;
+    }
+    @include vr.min(lg) {
+      padding: 28px 20px 32px;
+    }
+  }
+  &__ttl {
+    text-align: center;
+    color: vr.$c-main;
+    font-size: vr.vw(12);
+    margin-bottom: 10px;
+    @include vr.min(sm) {
+      font-size: vr.rem(12);
+    }
+    &--l {
+      font-size: 1.34em;
+    }
+  }
+  &__sub-ttl {
+    text-align: center;
+    color: vr.$c-main;
+    font-size: vr.vw(18);
+    font-weight: bold;
+    font-feature-settings: "palt";
+    margin-bottom: 10px;
+    @include vr.min(sm) {
+      font-size: vr.rem(22);
+      margin-bottom: 15px;
+    }
+  }
+  &__icon {
+    display: block;
+    margin: 0 auto 10px;
+    @include vr.min(sm) {
+      margin: 0 auto 15px;
+    }
+    @include vr.min(lg) {
+      margin: 0 auto 30px;
+    }
+    &--01 {
+      width: 20%;
+      max-width: 38px;
+      @include vr.min(lg) {
+        width: 42px;
+        max-width: inherit;
+      }
+    }
+    &--02 {
+      width: 20%;
+      max-width: 38px;
+      @include vr.min(lg) {
+        width: 40px;
+        max-width: inherit;
+      }
+    }
+    &--03 {
+      width: 27%;
+      max-width: 51px;
+      @include vr.min(lg) {
+        width: 52px;
+        max-width: inherit;
+      }
+    }
+    &--04 {
+      width: 30%;
+      max-width: 57px;
+      @include vr.min(lg) {
+        width: 62px;
+        max-width: inherit;
+      }
+    }
+  }
+  &__txt {
+    font-size: vr.vw(10);
+    padding-bottom: 10px;
+    @include vr.min(sm) {
+      font-size: vr.rem(13);
+    }
+    &--sm {
+      color: #656565;
+      font-size: vr.vw(10);
+      @include vr.min(sm) {
+        font-size: vr.rem(11);
+      }
+    }
+  }
+}
+
+// ----------------------
+// 対応機器
+// ----------------------
+.top-equipment {
+  background-color: #f4f4f4;
+  &__inner {
+    padding: 12vw 8vw 13vw;
+    @include vr.min(sm) {
+      padding: 72px 48px 80px;
+    }
+    @include vr.min(md) {
+      @include vr.ct-width();
+      padding-top: 72px;
+      padding-bottom: 104px;
+    }
+  }
+  &__ttl {
+    text-align: center;
+    font-size: vr.vw(30);
+    line-height: 1.5;
+    margin-bottom: vr.vw(36);
+    @include vr.min(sm) {
+      font-size: vr.rem(42);
+      margin-bottom: 56px;
+    }
+  }
+  &__txt {
+    font-size: vr.rem(14);
+    margin-bottom: 32px;
+    @include vr.min(sm) {
+      font-size: vr.rem(16);
+    }
+    @include vr.min(md) {
+      text-align: center;
+    }
+  }
+}
+
+.top-equipment-list {
+  margin-bottom: 24px;
+  @include vr.min(sm) {
+    margin-bottom: 16px;
+  }
+  @include vr.min(md) {
+    width: 49%;
+  }
+  &__wrap {
+    @include vr.min(md) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__ttl {
+    position: relative;
+    background: vr.$c-main;
+    color: vr.$c-white;
+    font-size: vr.rem(16);
+    line-height: 1.6;
+    padding: 14px 10vw 16px;
+    border-radius: 8px;
+    transition: all 0.3s;
+    @include vr.min(md) {
+      text-align: center;
+      padding: 14px 20px 16px;
+      border-radius: 8px 8px 0 0;
+      pointer-events: none;
+    }
+    &::before {
+      position: absolute;
+      content: "\f055";
+      color: vr.$c-white;
+      font-family: "font Awesome 5 Free";
+      font-weight: bold;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      @include vr.min(sm) {
+        right: 24px;
+      }
+      @include vr.min(md) {
+        display: none;
+      }
+    }
+    &--sm {
+      font-size: 0.8em;
+    }
+    &.active {
+      border-radius: 8px 8px 0 0;
+      &::before {
+        content: "\f056";
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+  &__box {
+    border: 1px solid vr.$c-main;
+    background: vr.$c-white;
+    padding: 3vw 4vw 4vw;
+    border-radius: 0 0 8px 8px;
+    @include vr.min(sm) {
+      padding: 22px 28px 24px;
+    }
+    @include vr.min(md) {
+      display: block;
+      padding: 16px;
+    }
+  }
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    dt {
+      width: 50%;
+      color: #656565;
+      font-size: vr.rem(12);
+      font-weight: 400;
+      @include vr.min(sm) {
+        width: 45%;
+        font-size: vr.rem(13);
+      }
+      @include vr.min(md) {
+        width: 50%;
+      }
+    }
+    dd {
+      position: relative;
+      width: 50%;
+      font-size: vr.rem(12);
+      font-weight: 700;
+      letter-spacing: 0;
+      padding-left: 12%;
+      @include vr.min(sm) {
+        width: 55%;
+        font-size: vr.rem(13);
+      }
+      @include vr.min(md) {
+        width: 50%;
+      }
+      &::before {
+        position: absolute;
+        content: "...";
+        color: #656565;
+        font-size: 1.6em;
+        line-height: 1;
+        left: 0;
+      }
+    }
+  }
+
+  &__accordion {
+    overflow: hidden;
+    height: 0;
+    transition: all 0.8s;
+    @include vr.min(md) {
+      overflow: unset;
+      height: auto;
+    }
+  }
+}
+
+.top-intro {
+  text-align: center;
+  margin: 40px 20px;
+  line-height: 1.8;
+  font-size: 1.1em;
+  color: $text-color;
+}
+
+// ----------------------
+// 導入効果
+// ----------------------
+.top-effect-intro {
+  padding: 11vw 0 10vw;
+  @include vr.min(sm) {
+    padding: 64px 0 56px;
+  }
+  @include vr.min(md) {
+    padding: 72px 0 80px;
+  }
+  &__txt {
+    text-align: center;
+    color: vr.$c-black;
+    font-size: vr.vw(14);
+    font-weight: bold;
+    line-height: 2.4;
+    @include vr.min(sm) {
+      font-size: vr.rem(20);
+    }
+  }
+}
+
+.top-effect {
+  background: vr.$c-main;
+}
+
+.top-effect-before {
+  position: relative;
+  background: vr.$c-sub;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-right: solid 50vw transparent;
+    border-left: solid 50vw transparent;
+    border-top: solid 10.2vw vr.$c-sub;
+    bottom: -10vw;
+    left: 50%;
+    transform: translateX(-50%);
+    @include vr.min(md) {
+      z-index: 1;
+    }
+    @include vr.min(lg) {
+      border-top: solid 88px vr.$c-sub;
+      bottom: -88px;
+    }
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 16vw;
+    background-color: vr.$c-main;
+    bottom: -10vw;
+    left: 50%;
+    transform: translateX(-50%);
+    @include vr.min(md) {
+      height: 40vw;
+      max-height: 480px;
+      z-index: 1;
+    }
+    @include vr.min(lg) {
+      bottom: -88px;
+    }
+  }
+  &__inner {
+    padding: 8vw 8vw 13vw;
+    @include vr.min(sm) {
+      padding: 64px 48px 80px;
+    }
+    @include vr.min(md) {
+      z-index: 0;
+      @include vr.ct-width();
+      padding-bottom: 80px;
+    }
+  }
+  &__ttl {
+    text-align: center;
+    font-size: vr.vw(28);
+    line-height: 1.5;
+    margin-bottom: 10vw;
+    @include vr.min(sm) {
+      font-size: vr.rem(30);
+      margin-bottom: 40px;
+    }
+  }
+  &__wrap {
+    background: vr.$c-white;
+    border-radius: 10px;
+    padding: 11vw 6.5vw 2.5vw;
+    margin-bottom: 24px;
+    @include vr.min(sm) {
+      padding: 64px 32px 16px;
+    }
+    @include vr.min(md) {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      padding: 32px;
+      z-index: 2;
+    }
+  }
+  &__box {
+    margin-bottom: 8vw;
+    @include vr.min(sm) {
+      margin-bottom: 48px;
+    }
+    @include vr.min(md) {
+      width: 48%;
+      margin-bottom: 0;
+    }
+  }
+  &__img {
+    max-width: 400px;
+    margin: 0 auto 10px;
+    transition: all 0.3s;
+    &:hover {
+      opacity: 0.5;
+    }
+    &--01 {
+      @include vr.min(md) {
+        max-width: 376px;
+      }
+    }
+    &--02 {
+      @include vr.min(md) {
+        max-width: 340px;
+      }
+    }
+  }
+  &__txt {
+    text-align: right;
+    font-size: vr.rem(10);
+    @include vr.min(sm) {
+      font-size: vr.rem(12);
+    }
+  }
+  // &__link-wrap{
+  //   @inclube vr.min(md){
+  //     display: flex;
+  //     justify-content: flex-end;
+  //   }
+  // }
+  &__link-box {
+    display: flex;
+    @include vr.min(md) {
+      position: relative;
+      justify-content: end;
+      background: vr.$c-sub;
+      width: 420px;
+      margin: 0 0 0 auto;
+      z-index: 2;
+    }
+  }
+  &__link-txt {
+    width: 40px;
+    font-size: vr.rem(12);
+  }
+  &__link {
+    width: calc(100% - 40px);
+    color: #656565;
+    font-size: vr.rem(12);
+    text-decoration: underline;
+    @include vr.min(md) {
+      width: 380px;
+      font-size: vr.rem(11);
+    }
+  }
+}
+
+.top-effect-after {
+  position: relative;
+  &::before {
+    position: absolute;
+    content: "";
+    background-color: vr.$c-white;
+    width: 2px;
+    height: 10vw;
+    top: 9.8vw;
+    left: 50%;
+    transform: translateX(-50%);
+    @include vr.min(lg) {
+      top: 88px;
+      height: 120px;
+    }
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    background-color: vr.$c-white;
+    width: 3px;
+    height: 5vw;
+    left: 51.6%;
+    top: 14.8vw;
+    transform: skew(-35deg);
+    @include vr.min(lg) {
+      height: 50px;
+      left: 50%;
+      top: 156px;
+      transform: translateX(8px) skew(-20deg);
+    }
+  }
+
+  &__inner {
+    position: relative;
+    padding: 27vw 8vw 13vw;
+    @include vr.min(sm) {
+      padding: 24vw 48px 72px;
+    }
+    @include vr.min(lg) {
+      @include vr.ct-width();
+      padding-top: 240px;
+    }
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      background-image: url(../img/dec-star.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    &::before {
+      width: 8vw;
+      height: 9vw;
+      left: 4%;
+      top: 7%;
+      @include vr.min(md) {
+        width: 28px;
+        height: 28px;
+        left: 12%;
+        top: 10%;
+      }
+      @include vr.min(lg) {
+        width: 28px;
+        height: 28px;
+        left: 160px;
+        top: inherit;
+        bottom: 830px;
+      }
+    }
+    &::after {
+      width: 5vw;
+      height: 5vw;
+      right: 8%;
+      top: 3%;
+      @include vr.min(md) {
+        width: 42px;
+        height: 42px;
+        right: 9%;
+        top: 16%;
+      }
+      @include vr.min(lg) {
+        right: 110px;
+        top: inherit;
+        bottom: 720px;
+      }
+    }
+  }
+  &__ttl {
+    text-align: center;
+    color: vr.$c-white;
+    font-size: vr.vw(28);
+    line-height: 1.5;
+    margin-bottom: 12vw;
+    font-feature-settings: "palt";
+    @include vr.min(sm) {
+      font-size: vr.rem(32);
+      margin-bottom: 48px;
+    }
+    &--l {
+      font-size: 1em;
+      @include vr.min(md) {
+        font-size: 1.2em;
+      }
+    }
+    &--xl {
+      font-size: 2.3em;
+      @include vr.min(md) {
+        font-size: 2.82em;
+      }
+    }
+    &--u {
+      display: inline-block;
+      position: relative;
+      font-feature-settings: "palt";
+      line-height: 1;
+      @include vr.min(md) {
+        padding: 0.5%;
+      }
+      &::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 8px;
+        background: #66e8f2;
+        bottom: -18px;
+        left: 50%;
+        transform: translateX(-50%);
+        @include vr.min(lg) {
+          height: 12px;
+        }
+      }
+    }
+  }
+  &__box {
+    background: vr.$c-white;
+    border-radius: 10px;
+    padding: 6.8vw 5.4vw 0;
+    margin-bottom: 10px;
+    @include vr.min(sm) {
+      padding: 40px 32px 0;
+    }
+    @include vr.min(lg) {
+      display: flex;
+      justify-content: space-between;
+      padding: 40px 0 48px;
+    }
+  }
+  &__item {
+    padding-bottom: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+    @include vr.min(lg) {
+      width: 50%;
+      margin: 0;
+      padding: 0 32px;
+    }
+    &:not(:last-of-type) {
+      border-bottom: 2px solid #e2e2e2;
+      margin-bottom: 8vw;
+      @include vr.min(sm) {
+        margin-bottom: 48px;
+      }
+      @include vr.min(lg) {
+        border-right: 2px solid #e2e2e2;
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+    }
+  }
+  &__comment {
+    font-size: vr.vw(12);
+    border: 2px solid vr.$c-main;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    position: relative;
+    @include vr.min(sm) {
+      font-size: vr.rem(16);
+    }
+    @include vr.min(lg) {
+      font-size: vr.rem(14);
+    }
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &::before {
+       border-right: solid 10px transparent;
+       border-left: solid 10px transparent;
+       border-top: solid 12px vr.$c-main;
+       border-radius: 3px;
+       bottom: -13px;
+    }
+    &::after {
+      border-right: solid 7px transparent;
+      border-left: solid 7px transparent;
+      border-top: solid 9px vr.$c-white;
+      bottom: -9px;
+    }
+  }
+  &__txt {
+    font-size: vr.vw(14);
+    font-weight: bold;
+    margin-bottom: 28px;
+    @include vr.min(sm) {
+      font-size: vr.rem(20);
+    }
+    @include vr.min(lg) {
+      font-size: vr.rem(18);
+    }
+  }
+  &__img {
+    width: 52%;
+    max-width: 220px;
+    margin: 0 auto;
+    @include vr.min(lg) {
+      max-width: 180px;
+    }
+  }
+  &__att {
+    text-align: right;
+    position: relative;
+    color: vr.$c-black;
+    font-size: vr.vw(10);
+    padding-bottom: 5px;
+    @include vr.min(sm) {
+      font-size: vr.rem(14);
+      padding-bottom: 0;
+    }
+  }
+}
+
+// ----------------------
+// ご質問バナー
+// ----------------------
+.top-qa {
+  padding: 10vw 8vw 12vw;
+  @include vr.min(sm) {
+    padding: 56px 48px 64px;
+  }
+  @include vr.min(md) {
+    padding: 64px 48px 80px;
+  }
+  &__link {
+    display: block;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    transition: all 0.3s;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+// ---------------------
+// お問い合わせ
+// ---------------------
+.contact-area {
+  position: relative;
+  background: linear-gradient(40deg, #92f5ee 0%, #54cadc 50%);
+  &::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(#9ce3ea 1px, transparent 1px);
+    background-size: 15px 15px;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    @include vr.min(lg) {
+      background-image: radial-gradient(#9ce3e8 1.5px, transparent 1.5px);
+      background-size: 23px 23px;
+    }
+  }
+  &__inner {
+    position: relative;
+    padding: 10vw 8vw 14vw;
+    z-index: 1;
+    @include vr.min(sm) {
+      padding: 56px 48px 80px;
+    }
+    @include vr.min(md) {
+      padding: 64px 48px 88px;
+    }
+  }
+  &__ttl {
+    text-align: center;
+    color: vr.$c-white;
+    font-size: vr.vw(32);
+    margin-bottom: vr.vw(25);
+    @include vr.min(sm) {
+      font-size: vr.rem(48);
+      margin-bottom: 44px;
+    }
+  }
+  &__ttl-dec {
+    display: block;
+    width: 65%;
+    max-width: 286px;
+    margin: 0 auto;
+    img {
+      display: block;
+    }
+  }
+  &__txt {
+    font-size: vr.vw(14);
+    margin-bottom: vr.vw(25);
+    @include vr.min(sm) {
+      font-size: vr.rem(16);
+      font-weight: bold;
+      margin-bottom: 48px;
+    }
+    @include vr.min(md) {
+      text-align: center;
+    }
+    &--sm {
+      max-width: 630px;
+      text-align: center;
+      font-size: vr.vw(10);
+      margin: 0 auto;
+      @include vr.min(sm) {
+        text-align: right;
+        font-size: vr.rem(14);
+        font-weight: bold;
+      }
+    }
+  }
+  .ct-btn {
+    max-width: 630px;
+    padding: 6vw 4vw 7vw;
+    margin: 0 auto 4vw;
+    @include vr.min(sm) {
+      padding: 32px 20px 40px;
+      margin-bottom: 20px;
+    }
+    &__txt {
+      font-size: vr.vw(16);
+      @include vr.min(sm) {
+        font-size: vr.rem(24);
+      }
+    }
+    .fa-envelope {
+      font-size: 1.3em;
+    }
+    .fa-phone-volume {
+      font-size: 1.7em;
+      left: 5.2vw;
+      @include vr.min(sm) {
+        left: 32px;
+      }
+    }
+  }
+}

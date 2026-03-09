@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700&display=swap"
+      rel="stylesheet"
+    >
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- swiper.css -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    >
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- JS -->
+    <script type="text/javascript" src="./js/common.js"></script>
+    <title>総合クラウド点呼システム IT点呼キーパー</title>
+    <meta
+      content="IT点呼・対面点呼・電話点呼・スマホ点呼を全て1つに。IT点呼キーパーは、貨物/旅客自動車運送事業者向けの総合クラウド点呼システムです。ITを活用し、営業所と車庫間で離れていても、ドライバーと運行管理者同士が顔を見ながら点呼を行えます。"
+      name="description"
+    />
+  </head>
+
+  <body>
+    <div class="modal">
+      <div class="modal-bg"></div>
+      <div class="modal-wrapper">
+        <div class="modal-inner">
+          <div class="modal-close-btn">×</div>
+          <div class="modal-content"></div>
+        </div>
+      </div>  
+    </div>
+    <header id="header" class="header">
+      <div class="header__wrap">
+        <div class="header__inner">
+          <div id="hdlogo" class="header__logo">
+            <a href="#header">
+              <img src="./img/logo.png"  srcset="./img/logo@2x.png"alt=
+              "総合クラウド点呼システムIT点呼キーパー">
+            </a>
+          </div>
+          <div class="header__right">
+            <a class="header__btn header__btn--tel scrollBtn"
+             href="tel:03-4362-6432">
+              <i class="fas fa-phone-volume">
+              </i>
+            </a>
+            <a class="header__btn header__btn--mail scrollBtn" 
+             href="./index.html">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <button id="gNavBtn" class="header__hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+        <!-- .header__inner-->
+        <nav id="gNav" class="g-nav"> 
+          <ul class="g-nav__list">
+            <li class="g-nav__item">
+              <a href="#topAbout">
+                <span class="g-nav__txt"> 製品情報</span> 
+              </a>
+            </li>  
+            <li class="g-nav__item">
+              <a href="#topReason">
+                <span class="g-nav__txt">選ばれる理由</span>
+              </a>
+            </li>    
+            <li class="g-nav__item">
+              <a href="#topPrice">
+                <span class="g-nav__txt">料金</span>
+              </a>
+            </li>
+            <li class="g-nav__item">
+              <a href="#topEffect">
+                <span class="g-nav__txt">導入事例</span>
+              </a>
+            </li>
+            <li class="g-nav__item">
+              <a href="#topQa">
+                <span class="g-nav__txt">FAQ</span>
+              </a>
+            </li>
+            <li class="g-nav__btn g-nav__btn--ctt ct-btn scrollBtn">
+              <a href="./index.html">
+                <span class="g-nav__btn-txt">
+                   <i class="fas fa-envelope">
+                   </i>
+                    お問い合わせ
+                </span>
+              </a>
+            </li>
+            <li class="g-nav__btn g-nav__btn--sp ct-btn ct-btn--main">
+              <a href="./dl/ittenko-document.pdf" download="ittenko-docum
+                ent.pdf">
+                <span class="g-nav__btn-txt ct-btn__txt">
+                  <i class="fas fa-file-alt">
+                  </i>
+                    資料ダウンロード
+                </span>
+              </a>
+            </li>  
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- /.header -->
+    <main class="top ct-wrap">
+      <div class="top-wrap">
+        <section class="top-mv">
+          <div class="top-mv__inner">
+            <div class="top-mv__wrap">
+              <div class="top-mv__box">
+                <div class="top-mv__box--l">
+                  <div class="top-mv__copy-wrap">
+                    <p class="top-mv__copy top-mv__copy--sm">
+                     IT点呼システム
+                    </p>
+                    <p class="top-mv__copy">
+                      運送業務を未来へ運ぶ
+                      <br />
+                      <span class="c-span top-mv__dot">
+                        点呼フルサポートシステム
+                      </span>
+                    </p>
+                  </div>
+                  <div class="top-mv__img top-mv__img--sp">
+                    <img src="./img/top-mv-img01.png" srcset="./img/top-m
+                     v-img01@2x.png" alt="国土交通省 助成金対象機器 6年連
+                     続認定" />
+                  </div>
+                  <ul class="top-mv__list">
+                    <li class="top-mv__item">
+                      <span class="top-mv__item-txt">クラウド<br>一括管理</span>
+                    </li>
+                    <li class="top-mv__item">
+                      <span class="top-mv__item-txt">点呼移動<br>不要！</span>
+                    </li>
+                    <li class="top-mv__item">
+                      <span class="top-mv__item-txt">かんたん<br>操作</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="top-mv__box--r">
+                  <div class="top-mv__img top-mv__img--pc">
+                    <img src="./img/top-mv-img01.png" src="./img/top-m
+                     v-img01@2x.png" alt="国土交通省 助成金対象機器 6年連
+                     続認定">
+                  </div>
+                </div>
+              </div>
+              <div class="top-mv__btn-wrap">
+                <div class="ct-btn ct-btn--main">
+                  <a href="./dl/ittenko-document.pdf" download="ittenko-d
+                   ocument.pdf">
+                    <span class="ct-btn__txt">
+                      <i class="fas fa-file-alt"></i>
+                       資料ダウンロード
+                    </span>
+                  </a>
+                </div>  
+                <div class="ct-btn ct-btn--accent">
+                  <a href="./index.html">
+                    <span class="ct-btn__txt">
+                      <i class="fas fa-envelope"></i>
+                       お問い合わせ
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- /.top-mv -->
+        <section id="topabout" class="top-about">
+          <div class="top-about__inner">
+            <h2 class="top-about__ttl">IT点呼キーパーとは？</h2>
+            <div class="top-about__img">
+              <img
+               src="./img/top-about-img01.png" srcset="./img/top-about-img01@2x.png"
+               alt="クラウド一括管理。">
+            </div>
+            <p class="top-about__txt--big">
+              IT点呼キーパーで
+              <span class="c-main">
+                点呼結果を
+                <br class="d-md-none">
+                クラウド一括管理。
+              </span>
+            </p>
+            <p class="top-about__txt">
+              <span class="c-main">業務効率化</span>
+              ・
+              <span class="c-main">人的負担軽減</span>
+              ・
+              <span class="c-main">虚偽報告防止</span>
+              など、
+              <br class="d-none d-sm-block">
+              安心安全な運行管理を実現します。
+            </p>
+          </div>
+        </section>
+        <!-- /.top-about --> 
+      </div>
+      <!-- /.top-wrap -->
+      <section id="top-reason" class="top-reason section">
+        <div class="top-reason__inner">
+          <h2 class="top-reason__ttl">
+           IT点呼キーパーが
+           <br>
+             <span class="top-reason__ttl--l">選ばれる</span>
+             <span class="top-reason__ttl--xl c-main">6</span>
+             <span class="top-reason__ttl--l c-main">つの理由</span>
+          </h2>
+          <div class="top-reason__list">
+            <div class="top-reason__item">
+              <div class="top-reason__number">
+                <img src="./img/i-no01.svg" alt="01">
+              </div>
+              <div class="top-reason__img--01">
+                <img src="./img/top-reason-img01.svg" alt="指差し">
+              </div>
+              <p class="top-reason__txt">操作が簡単</p>
+            </div>
+            <div class="top-reason__item">
+              <div class="top-reason__number">
+                <img src="./img/i-no02.svg" alt="02">
+              </div>
+              <div class="top-reason__img--02">
+                <img src="./img/top-reason-img02.svg" alt="お財布">
+              </div>
+              <p class="top-reason__txt">費用が安い</p>
+            </div>
+            <div class="top-reason__item">
+              <div class="top-reason__number">
+                <img src="./img/i-no03.svg" alt="03">
+              </div>
+              <div class="top-reason__img--03">
+                <img src="./img/top-reason-img03.svg" alt="クラウド">
+              </div>
+              <P class="top-reason__txt">クラウド<br>サーバー管理</P>
+            </div>
+            <div class="top-reason__item">
+              <div class="top-reason__number">
+                <img src="./img/i-no04.svg" alt="04">
+              </div>
+              <div class="top-reason__img--04">
+                <img src="./img/top-reason-img04.svg" alt="握手">
+              </div>
+              <p class="top-reason__txt">国土交通省の<br>認定機器</p>
+            </div>
+            <div class="top-reason__item">
+              <div class="top-reason__number">
+                <img src="./img/i-no05.svg" alt="05">
+              </div>
+              <div class="top-reason__img--05">
+                <img src="./img/top-reason-img05.svg" alt="ロック">
+              </div>
+              <p class="top-reason__txt">安心の<br>セキュリティ</p>
+            </div>
+            <div class="top-reason__item">
+              <div class="top-reason__number">
+                <img src="./img/i-no06.svg" alt="06">
+              </div>
+              <div class="top-reason__img--06">
+                <img src="./img/top-reason-img06.svg" alt="電球">
+              </div>
+              <p class="top-reason__txt">点呼簿等の<br>手作業解消</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /.top-reason -->
+       
+      <section class="top-solution bg-dot">
+        <div class="top-solution__inner">
+          <h2 class="top-solution__ttl">
+            IT点呼キーパーなら
+            <br>
+            <span class="top-solution__ttl--l">こんな</span>
+            <span class="top-solution__ttl--xl c-main">お悩みも解決！
+            </span>
+          </h2>
+          <div class="swiper-container">
+            <ul class="top-solution__list swiper-wrapper">
+              <li class="top-solution__item swiper-slide">
+                <div class="top-solution__item-img">
+                  <img src="./img/top-solution-img01.png" srcset="./img/top-solution-img01@2x.png" 
+                   alt="手書きの点呼簿の管理が面倒"
+                  />
+                </div>
+              </li>
+              <li class="top-solution__item swiper-slide">
+                <div class="top-solution__item-img">
+                  <img src="./img/top-solution-img02.png" srcset="./img/top-solution-img02@2x.png" 
+                   alt="営業所によって点呼の質がバラバラ"
+                  />
+                </div>
+              </li>  
+              <li class="top-solution__item swiper-slide">
+                <div class="top-solution__item-img">
+                  <img src="./img/top-solution-img03.png" srcset="./img/top-solution-img03@2x.png" 
+                   alt="運行管理者の拘束時間が長い"
+                  />
+                </div>
+              </li>
+              <li class="top-solution__item swiper-slide">
+                <div class="top-solution__item-img">
+                  <img src="./img/top-solution-img04.png" srcset="./img/top-solution-img04@2x.png" 
+                   alt="運行業務の管理ができていない"
+                  />
+                </div>
+              </li>
+            </ul>
+            <!-- ページネーションの div 要素 -->
+            <div class="swiper-pagination swiper-pagination-clickable
+             swiper-pagination-bullets swiper-pagination-horizontal">
+              <span class="swiper-pagination-bullet swiper-pagination-bullet-active"
+              spindex="0" role="button" aria-label="Go to slide 1"
+              aria-current="true"></span>
+              <span class="swiper-pagination-bullet" spindex="0" 
+              role="button" aria-label="Go to slide 2"
+              aria-current="true"></span>
+              <span class="swiper-pagination-bullet" spaindex="0"
+              role="button" aria-label="Go to slide 3"></span>
+              <span class="swiper-pagination-bullet" spindex="0"
+              role="button" aria-label="Go to slide 4"></span>
+            </div>
+            <!-- ナビゲーションボタンの div 要素  -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>  
+          <!-- /.swiper -->
+        </div>
+      </section>
+      <!-- /.top-solution -->
+       
+      <section class="top-flow">
+        <div class="top-flow__inner">
+          <h2 class="top-flow__ttl">
+            <span class="top-flow__ttl">
+              IT点呼キーパーによる
+            </span>
+              <br>
+            <span class="top-flow__ttl--l c-main">
+              仕組み・点呼業務の流れ
+            </span>
+          </h2>
+          <div class="top-flow__image">
+            <img src="./img/top-flow-img01-sp@2x.png" alt="点呼業務の流れ">
+          </div>
+        </div>
+      </section>
+      <!--  /.top-flow -->
+        
+      <section class="top-merit bg-dot">
+        <div class="top-merit__inner">
+          <h2 class="top-merit__ttl">
+            IT点呼キーパーを
+            <br>
+            <span class="top-merit__ttl--l">導入する</span>
+            <span class="top-merit__ttl--l c-main">メリット</span>
+          </h2>
+          
+          <div class="sp-wrap">
+            <input 
+              id="sp01" 
+              type="radio" 
+              name="sp" 
+              class="sp-switch" 
+              checked="checked" 
+            /><label class="sp-label" for="sp01">運行管理者</label>
+            <div class="sp-content">
+              <div class="sp-content__img">
+                <img src="./img/top-merit-img01.png" alt="">
+              </div>
+              <h3 class="sp-content__ttl">運行管理者のメリット</h3>
+              <ul class="sp-content__list">
+                <li class="sp-content__item">
+                  <span class="sp-content__number">1</span>
+                  <p class="sp-content__item-txt">
+                    <span class="c-main">運行管理者が車庫にいなくても</span>
+                      、営業所からドライバーと
+                    <span class="c-main">IT点呼により顔を見ながら点呼</span>
+                      ができます。
+                  </p>
+                </li>
+                <li class="sp-content__item">
+                  <span class="sp-content__number">2</span>  
+                  <p class="sp-content__item-txt">
+                    点呼結果が自動でクラウンに保存され、
+                    <span class="c-main">管理がスムーズ</span>
+                    になります。
+                  </p>
+                </li> 
+                <li class="sp-content__item">
+                  <span class="sp-content__number">3</span> 
+                  <p class="sp-content__item-txt">
+                    <span class="c-main">データ化</span>
+                      された点呼結果から
+                    <span class="c-main">点呼記録簿が作成</span>
+                      できます。
+                  </p> 
+                </li>      
+                <li class="sp-content__item">
+                  <span class="sp-content__number">4</span> 
+                  <p class="sp-content__item-txt">
+                    点呼結果・点呼記録簿は
+                    <span class="c-main">いつでもどこでも確認・出力</span>
+                    できるので、
+                    <span class="c-main">監査の時も慌てず対応</span>
+                    できるようになります。
+                  </p> 
+                </li>   
+              </ul>      
+            </div>
+            <!-- /#sp01 -->
+            <input id="sp02" type="radio" name="sp" class="sp-switch">
+            <label class="sp-label" for="sp02">ドライバー</label>
+            <div class="sp-content">
+              <div class="sp-content__img">
+                <img src="./img/top-merit-img02.png" alt="ドライバーのメリット">
+              </div>
+              <h3 class="sp-content__ttl">ドライバーのメリット</h3>
+              <ul class="sp-content__list">
+                <li class="sp-content__item">
+                  <span class="sp-content__number">1</span> 
+                  <p class="sp-content__item-txt">
+                    対面点呼のために
+                    <span class="c-main">離れた営業所まで向かう時間が削減</span>
+                    されます。
+                  </p>
+                </li>
+                <li class="sp-content__item">
+                  <span class="sp-content__number">2</span> 
+                  <p class="sp-content__item-txt">
+                    遠隔地の場合でも
+                    <span class="c-main">
+                      スマートフォンで点呼
+                      <i>※</i> 
+                    </span>
+                    が行えます。
+                    <span class="sp-content__item-txt--sm">※オプション</span>
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <!-- /#sp02 -->
+            <input id="sp03" type="radio" name="sp" class="sp-switch">
+            <label class="sp-label" for="sp03">経営者</label>
+            <div class="sp-content">
+              <div class="sp-content__img">
+                <img src="./img/top-merit-img03.png" alt="経営者のメリット">
+              </div>
+              <h3 class="sp-content__ttl">経営者のメリット</h3>
+              <ul class="sp-content__list">
+                <li class="sp-content__item">
+                  <span class="sp-content__number">1</span>
+                  <p class="sp-content__item-txt"> 
+                    <span class="c-main">点呼結果が自動でクラウンに保存・管理
+                    </span>
+                      されるので、
+                    <span class="c-main">改ざん・不正利用防止</span>
+                      に繋がります。
+                  </p>
+                </li>
+                <li class="sp-content__item">
+                  <span class="sp-content__number">2</span>
+                  <p class="sp-content__item-txt">
+                     営業所ごとにバラついていた
+                    <span class="c-main">点呼の質が均一化<span>
+                     され、
+                    <span class="c-main">点呼簿の質が向上</span>
+                     されます。
+                  </p>
+                </li>
+                <li class="sp-content__item">
+                  <span class="sp-content__number">3</span>
+                  <p class="sp-content__item-txt">
+                      クラウド化により、
+                    <span class="c-main">ペーパーレスで経費削減</span>
+                      に繋がります。
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <!-- /#sp03 -->
+          </div>
+        </div>
+      </section>
+      <!-- ¥.top-merit -->
+      <section id="top-price" class="top-price section">
+        <div class="top-price__inner">
+          <h2 class="top-price__ttl">
+            <span class="top-price__ttl">国土交通省認定のIT点呼システム</span>
+             <br>
+            <span class="top-price__ttl--l">IT点呼キーパーは
+             <br>
+            <span class="top-price__ttl--u">高性能なのに</span><span class="top-price__ttl--u c-main">低価格！</span>
+          </h2>
+          <div class="top-price__box">
+            <div class="top-price__img-wrap">
+              <div class="top-price__img">
+                <img src="./img/top-price-img01@2x.png" alt="10万円">
+              </div>
+            </div>
+            <div class="top-price__img-wrap">
+              <div class="top-price__img">
+                <img src="./img/top-price-img02@2x.png" alt="1万円">
+              </div>  
+            </div>
+          </div>
+          <!-- /.top.price__box -->
+          <p class="top-price__txt--l">（初期登録の費用とソフトウェア利用ライセンス費用が含まれます。）</p>
+          <p class="top-price__txt">※1拠点につき3アカウントまで。4アカウント以上を希望される場合、別途有償になります。<br>※お支払いにつきましては、12ヶ月一括払い
+もご選択いただけます。</p>
+          <div class="top-price-plan" data-drop="wrap">
+            <h2 class="top-price-plan__ttl" data-drop="toggle">
+              追加プラン<span class="top-price-plan__ttl--sm">（初期費用不要）</span>
+            </h2>
+            <div class="top-price-plan__accordion">
+              <div class="top-price-plan__wrap" data-drop="slide">
+                <dl class="top-price-plan__plan">
+                  <dt>スマホ点呼アプリ・・・</dt>
+                  <dd>
+                    5台毎に3,300円の追加料金が必要です。
+                    <span class="top-price-plan__plan-txt--sm">
+                      ※スマートフォン本体価格、及び通話料、通信料は含みません。
+                    </span>
+                  </dd>
+                </dl>
+                <table class="top-price-plan__table">
+                  <thead>
+                    <tr>
+                      <th>スマホ台数</th>
+                      <th>月額維持費用</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>5台迄</th>
+                      <td>3,000円（税抜）<br class="sp-only">[3,300円（税込）]</td>
+                    </tr>
+                    <tr>
+                      <th>10台迄</th>
+                      <td>6,000円（税抜）<br class="sp-only">[6,600円（税込）]</td>
+                    </tr>
+                    <tr>
+                      <th>15台迄</th>
+                      <td>9,000円（税抜）<br class="sp-only">[9,900円（税込）]</td>
+                    </tr>
+                    <tr>
+                      <th>20台迄</th>
+                      <td>12,000円（税抜）<br class="sp-only">[13,200円（税込）]</td>
+                    </tr>
+                    <tr>
+                      <th>25台迄</th>
+                      <td>15,000円（税抜）<br class="sp-only">[16,500円（税込）]</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <dl class="top-price-plan__plan">
+                  <dt>血圧計連携プラン・・・</dt>
+                  <dd>
+                    月額維持費用2,000円（税抜）/ 
+                    <span class="dd-sm">拠点</span> [2,200円（税込）]
+                    <span class="top-price-plan__plan-label">3アカウント迄</span>
+                    <span class="top-price-plan__plan-txt--sm">
+                      ※1拠点につき3アカウントまで。別途アカウントが必要な場合は別途2,000円を頂戴いたします。
+                    </span>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <!-- /.top-price-plan__table -->
+          </div>
+          <!-- /.top-price__plan -->
+        </div>
+      </section>
+      <!-- /.top-price -->
+       
+      <section class="contact-area__mid">
+        <div class="contact-area__inner">
+          <h2 class="contact-area__ttl">
+            <span class="contact-area__ttl-dec">
+              <img src="./img/contact-dec01.png" srcset="./img/contact-dec01@2x.png"
+               alt="かんたん無料">
+            </span>
+             お問い合わせ
+          </h2>
+          <p class="contact-area__txt">
+            製品の詳しいご相談・資料請求は
+            <br>
+            下記のお問合せ専用フォームまたはお電話にてお気軽にお問合せください。
+          </p>
+          <div class="contact-area__btn-wrap">
+            <div class="ct-btn ct-btn--accent">
+              <a href="./index.html">
+                <span class="ct-btn__txt">
+                  <i class="fas fa-envelope"></i>
+                  まずは無料でお問い合わせする
+                </span>
+              </a>
+            </div>
+            <div class="ct-btn ct-btn--main">
+              <a href="tel:03-4362-6432">
+                <span class="ct-btn__txt">
+                  <i class="fas fa-phone-volume"></i>
+                   お電話はこちら
+                </span>
+              </a>
+            </div>
+          </div>
+          <p class="contact-area__txt--sm"> 受付時間：月曜日～金曜日 9:00～
+            18：00 ※土日祝日は休業 
+          </p>
+        </div>
+      </section>
+      <!-- /.contact-area -->
+       
+      <section class="top-step">
+        <div class="top-step__inner">
+          <h2 class="top-step__ttl">
+            導入まで
+            <br>
+            <span class="top-step__ttl--l">
+              最短２週間
+            </span>
+          </h2>
+          <ul class="top-step-list">
+            <!-- step01 -->
+            <li class="top-step-list__item">
+              <h3 class="top-step-list__ttl">
+                STEP<span class="top-step-list__ttl--l">01</span>
+              </h3>
+              <div class="top-step-list__box">
+                <h4 class="top-step-list__sub-ttl">
+                  お問い合わせ
+                </h4>
+                <span class="top-step-list__icon top-step-list__icon--01">
+                  <img src="./img/step-icon01.svg" alt="電話">
+                </span>
+                <p class="top-step-list__txt">
+                  お電話・WEBからお問い合わせください。
+                </p>
+                <p class="top-step-list__txt--sm">
+                  最短で即日もしくは翌営業日までに対応！
+                  お見積もりが必要な場合はお申し付けください。
+                </p>
+              </div>
+            </li>
+            <!-- step02 -->
+            <li class="top-step-list__item">
+              <h3 class="top-step-list__ttl">
+                STEP<span class="top-step-list__ttl--l">02</span>
+              </h3>
+              <div class="top-step-list__box">
+                <h4 class="top-step-list__sub-ttl">
+                  ご訪問・ご提案
+                </h4>
+                <span class="top-step-list__icon top-step-list__icon--02">
+                  <img src="./img/step-icon02.svg" alt="電球">
+                </span>
+                <p class="top-step-list__txt">
+                  ご相談内容に応じて担当者がご訪問させていただき、無料デモンストレーションを行いながらご説明させて頂きます。
+                </p>
+              </div>
+            </li>
+            <!-- step03 -->
+            <li class="top-step-list__item">
+              <h3 class="top-step-list__ttl">
+                STEP<span class="top-step-list__ttl--l">03</span>
+              </h3>
+              <div class="top-step-list__box">
+                <h4 class="top-step-list__sub-ttl">
+                  お申込み
+                </h4>
+                <span class="top-step-list__icon top-step-list__icon--03">
+                  <img src="./img/step-icon03.svg" alt="テキスト">
+                </span>
+                <p class="top-step-list__txt">
+                  ご登録の際に必要な情報をいただきます。
+                  その後、お客様専用のアカウントを発行します。
+                </p>
+              </div>
+            </li>
+            <!-- step04 -->
+            <li class="top-step-list__item">
+              <h3 class="top-step-list__ttl">
+                STEP<span class="top-step-list__ttl--l">04</span>
+              </h3>
+              <div class="top-step-list__box">
+                <h4 class="top-step-list__sub-ttl">
+                  ご利用開始
+                </h4>
+                <div class="top-step-list__icon top-step-list__icon--04">
+                  <img src="./img/step-icon04.svg" alt="握手">
+                </div>
+                <p class="top-step-list__txt">
+                  お申込書受領後、スタッフがお伺いし初期設定を行い、お手続き完了です。
+                  その後のアフターサポートもお任せください！
+                </p>
+              </div>
+            </li>  
+          </ul>
+        </div>
+      </section>
+      <!-- /.top-step -->
+      <section class="top-equipment">
+        <div class="top-equipment__inner">
+          <h2 class="top-equipment__ttl">
+             IT点呼キーパー
+            <br class="d-md-none">
+            <span class="c-main">対応機器</span>
+          </h2>
+          <p class="top-equipment__txt">
+            IT点呼キーパーはアルコール検知器・血圧計との連携可能。
+            <br class="d-none d-md-block">
+            測定結果の自動保存・CSVファイル出力など、業務効率化をサポートする便利な機能を搭載。
+          </p>
+          <div class="top-equipment-list__wrap">
+            <div class="top-equipment-list">
+              <h2 class="top-equipment-list__ttl" style="height: auto;">
+                 IT点呼キーパーに対応する
+                 <br class="d-sm-none">
+                 アルコール検知器
+              </h2>
+              <div class="top-equipment-list__accordion">
+                <div class="top-equipment-list__box">
+                  <dl class="top-equipment-list__item">
+                    <dt>フィガロ技研株式会社</dt>    
+                    <dd>
+                      FuGo-Pro FALC-11
+                    </dd>  
+                  </dl>
+                  <dl class="top-equipment-list__item">
+                    <dt>株式会社東洋マーク製作所</dt>
+                    <dd>
+                     AC-011IT
+                      <br />
+                     AC-015IT
+                      <br />
+                     AC-015BT
+                      <br />
+                     AC-018
+                    </dd>
+                  </dl>
+                  <dl class="top-equipment-list__item">
+                    <dt>サンコーテクノ株式会社</dt>
+                    <dd>
+                     ST-3000
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+            <!-- /.top-equipment-list -->  
+            <div class="top-equipment-list">
+              <h2 class="top-equipment-list__ttl">
+                IT点呼キーパーに対応する
+                <br class="d-sm-none">
+                血圧機 
+              </h2>
+              <div class="top-equipment-list__accordion">
+                <div class="top-equipment-list__box">
+                  <dl class="top-equipment-list__item">
+                    <dt>オムロンヘルスケア株式会社</dt>
+                    <dd>
+                     健太郎HBP-9031C
+                     <br />
+                     健太郎HBP-9030
+                    </dd>
+                  </dl>
+                  <dl class="top-equipment-list__item">
+                    <dt>株式会社エー・アンド・デイ</dt>
+                    <dd>
+                     診之助Slim TM-2657P
+                    </dd>
+                  </dl>
+                  <dl class="top-equipment-list__item">
+                    <dt>株式会社タニタ</dt>
+                    <dd>
+                     業務用全自動血圧計
+                     <br />
+                     BP-910
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+            <!-- ./top-equipment-list -->
+          </div>
+        </div>
+      </section>
+      <!-- /.top-equipment -->
+      <div class="top-effect-intro">
+        <p class="top-effect-intro__txt">人手不足が深刻化しているトラック
+          <br class="d-md-none">
+          運送業界だからこそ、<br />
+          これまでの業務を見直しIT点呼を
+          <br class="d-md-none">
+          導入してみませんか？
+        </p>
+      </div>
+      <!-- /.top-effect-intro -->
+      <section id="topEffect" class="top-effect">
+        <div class="top-effect__inner">
+          <div class="top-effect-before">
+            <div class="top-effect-before__inner">
+              <h2 class="top-effect-before__ttl">
+                実際の<span class="c-main">導入効果</span>と
+                <br class="d-md-none">
+                IT点呼の<span class="c-main">実施率</span>
+              </h2>
+              <div class="top-effect-before__wrap">
+                <div class="top-effect-before__box">
+                  <div class="top-effect-before__img top-effect-befor
+                   e__img--01" style="height: auto;">
+                    <img src="./img/top-effect-img01.jpg" src="./i
+                   mg/top-effect-img01@2x.jpg" alt="IT点呼導入効果
+                   （アンケート）" class="modal-toggle">
+                  </div>
+                  <p class="top-effect-before__txt">※クリックで拡大します。</p>
+                </div>
+                <div class="top-effect-before__box">
+                  <div class="top-effect-before__img top-effect-befor
+                   e__img--02" style="height: auto;">
+                    <img src="./img/top-effect-img02.jpg" src="./i
+                     mg/top-effect-img02@2x.jpg" alt="IT点呼の実施率"
+                     class="modal-toggle">
+                  </div>
+                  <p class="top-effect-before__txt">※クリックで拡大します。</p>
+                </div>
+              </div>
+              <!-- /.top-effect-before__wrap -->
+              <div class="top-effect-before__link-box">
+                <p class="top-effect-before__link-txt">参考：</p>
+                <a href="https://www.mlit.go.jp/jidosya/content/001311692.pdf"
+                 class="top-effect-before__link" target="_blank">国土交通省 
+                 中小トラック運送業のためのITツール活用ガイドブック</a>
+              </div>
+              <div class="top-effect-before__link-box"> 
+                <p class="top-effect-before__link-txt">引用：</p> 
+                <a href="https://www.tele-nishi.co.jp/biz/ittenko/"
+                 class="top-effect-before__link" target="_blank">テレニシ公式サイトより引用</a>
+              </div>
+            </div>
+          </div>
+          <!-- /.top-effect-before -->
+
+          <div class="top-effect-after">
+            <div class="top-effect-after__inner">
+              <h2 class="top-effect-after__ttl">
+                IT点呼を導入後<br class="d-md-none" />点呼業務の時間を<br />
+                <span class="top-effect-after__ttl--u">
+                  <span class="top-effect-after__ttl--l">約</span>
+                  <span class="top-effect-after__ttl--xl">33</span>
+                  <span class="top-effect-after__ttl--l">%</span>削減※可能!
+                </span>
+              </h2>
+              <div class="top-effect-after__box">
+                <div class="top-effect-after__item">
+                  <p class="top-effect-after__comment">
+                    本社から車庫まで、点呼のためだけに天候が悪い日も車庫まで行かないといけないのは非常に大変です。
+                  </p>
+                  <p class="top-effect-after__txt">
+                    IT点呼を導入してから、
+                    <span class="c-main">
+                     点呼実施者の負担が軽減され、時間短縮</span>ができます。
+                  </p>
+                  <div class="top-effect-after__img">
+                    <img 
+                      src="./img/top-effect-img03.png" 
+                      srcset="./img/top-effect-img03@2x.png"
+                      alt="" 
+                    />
+                  </div>
+                </div>
+                <!-- /.top-effect-after__item -->
+                <div class="top-effect-after__item">
+                  <p class="top-effect-after__comment">
+                   専任の運行管理者がいない、でも専任を雇用することも難しく、ドライバー が運行管理者の仕事を兼務で行っているという場合。
+                  </p>
+                  <p class="top-effect-after__txt">
+                   IT点呼を導入を導入すれば、
+                   <span class="c-main">ドライバーは本業
+                    に専念できるようになり、また兼務による
+                    ドライバーへの業務負担を解消</span>できます。
+                  </p>
+                  <div class="top-effect-after__img">
+                    <img 
+                      src="./img/top-effect-img04.png" 
+                      srcset="./img/top-effect-img04@2x.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <!-- /.top-effect-after__item -->
+              </div>  
+              <!-- /.top-effect-after__box --> 
+              <p class="top-effect-after__att">
+                ※3拠点で24時間稼働を行っているGマーク取得企業の場合
+              </p>
+            </div>
+          </div>
+          <!-- /.top-effect-after -->
+        </div>
+      </section> 
+      <!-- /.top-effect -->
+
+      <div id="top-qa" class="top-qa bg-dot">
+        <a 
+          class="top-qa__link" 
+          href="https://www.tele-nishi.co.jp/biz/ittenko/faq/" 
+          target="_blank">
+          <img
+            class="d-md-none"
+            src="./img/qa-bnr-sp.jpg"
+            src="./img/qa-bnr-sp@2x.jpg"
+            alt="よくあるご質問はこちら"
+          />
+        </a>
+      </div> 
+      <!-- /.top-qa -->
+       
+      <section class="contact-area">
+        <div class="contact-area__inner">
+          <h2 class="contact-area__ttl">
+            <span class="contact-area__ttl-dec">
+              <img src="./img/contact-dec01.png" srcset=
+               "./img/contact-dec01@2x.png" alt="かんたん無料">
+            </span>
+              お問い合わせ
+          </h2>
+          <p class="contact-area__txt">
+              製品の詳しいご相談・資料請求は
+            <br>
+              下記のお問合せ専用フォームまたはお電話にてお気軽にお問合せください。
+          </p>
+          <div class="contact-area__btn-wrap">
+            <div class="ct-btn ct-btn--accent">
+              <a href="./index.html">
+                <span class="ct-btn__txt">
+                  <i class="fas fa-envelope">
+                  </i>  
+                  まずは無料でお問い合わせする
+                </span>
+              </a>
+            </div>
+            <div class="ct-btn ct-btn--main">
+              <a href="tel:03-4362-6432">
+                <span class="ct-btn__txt">
+                  <i class="fas fa-phone-volume">
+                  </i>
+                  お電話はこちら
+                </span>
+              </a>
+            </div>
+          </div> 
+          <p class="contact-area__txt--sm">受付時間：月曜日～金曜日
+           9:00～18:00 ※土日祝日は休業 </p>
+        </div>
+      </section>
+      <!-- /.contact-area -->
+      <!-- footer -->
+      <footer class="footer">
+        <div class="footer__inner">
+          <p class="footer__txt">総合クラウド点呼システム
+            IT点呼キーパー</p>
+        </div>
+      </footer>
+    </main>          
+
+    <!-- swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      const scaleWindowW = function () {
+        const w =
+          window.innerWidth || document.documentElement.clientWidth || 0;
+        return w;
+      };
+
+      window.addEventListener(
+        "DOMContentLoaded",
+        function () {
+          let swiper = undefined;
+          const swiperEl = document.querySelector(".swiper-container");
+          const swiperWrapper =
+            document.getElementsByClassName("swiper-wrapper");
+          const swiperSlide = document.getElementsByClassName("swiper-slide");
+
+          const initSwiper = function () {
+            if (scaleWindowW() < 768 && swiper == undefined) {
+              swiper = new Swiper(swiperEl, {
+                loop: true,
+                slidesPerView: "auto",
+                spaceBetween: 15,
+                touchRadio: 0.03,
+                grabCursor: true,
+                navigation: {
+                  nextEl: ".swiper-button-next",
+                  prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                  el: ".swiper-pagination",
+                  clickable: true,
+                },
+              });
+            } else if (scaleWindowW() >= 768 && swiper != undefined) {
+              swiper.destroy();
+              swiper = undefined;
+              for (let i = 0; i < swiperWrapper.length; i++) {
+                swiperWrapper[i].removeAttribute("style");
+              }
+              for (let i = 0; i < swiperSlide.length; i++) {
+                swiperSlide[i].removeAttribute("style");
+              }
+            } 
+          };
+          initSwiper();
+
+          window.addEventListener("resize", initSwiper);
+        },
+        false
+      );
+    </script>
+    <!-- ここまで消す -->
+  </body>
+</html>
+

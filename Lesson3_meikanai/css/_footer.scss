@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+/*クラス定義 (これより下を消す)*/
+
+@use "variable" as vr;
+
+.footer {
+  background: #c6c6c6;
+  padding: 5vw 0;
+  @include vr.min(sm) {
+    padding: 32px 0;
+  }
+  &__txt {
+    text-align: center;
+    color: vr.$c-white;
+    font-size: vr.vw(10);
+    font-weight: bold;
+    @include vr.min(sm) {
+      font-size: vr.rem(16);
+    }
+  }
+}
